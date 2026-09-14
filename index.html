@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mohammed Abdul Haq — Biomedical Engineering</title>
+  <meta name="description" content="Mohammed Abdul Haq — third-year Biomedical Engineering undergraduate at MIT Manipal. MRI internship, embedded sensing, engineering mathematics.">
+  <meta name="theme-color" content="#0c0d0d">
+  <meta property="og:title" content="Mohammed Abdul Haq — Biomedical Engineering">
+  <meta property="og:description" content="B.Tech Biomedical Engineering, MIT Manipal. Medical imaging, embedded sensing, engineering mathematics.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c0d0d'/%3E%3Cpath d='M4 18h6l2-6 4 12 3-9 2 3h7' fill='none' stroke='%23ff6a3d' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="mark" href="#top" aria-label="Mohammed Abdul Haq — home">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 18h6l2-6 4 12 3-9 2 3h9"/></svg>
+        <span>M. Abdul Haq</span>
+      </a>
+      <nav class="nav" aria-label="Sections">
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#credentials">Credentials</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <span class="status"><i></i>Open to internships</span>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <div class="wrap hero__grid">
+        <div class="hero__text">
+          <p class="eyebrow mono">B.Tech Biomedical Engineering &nbsp;/&nbsp; MIT Manipal &nbsp;/&nbsp; 2024–28</p>
+          <h1 class="hero__title">Mohammed<br>Abdul Haq<span class="dot">.</span></h1>
+          <p class="hero__lede">
+            Biomedical engineering undergraduate working where <em>physiology meets hardware</em> —
+            medical imaging, wearable sensing and the mathematics underneath both.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--solid" href="#contact">Get in touch</a>
+            <a class="btn" href="#credentials">View credentials</a>
+          </div>
+        </div>
+
+        <figure class="scope" aria-label="Illustrative accelerometer trace showing a detected fall">
+          <div class="scope__head mono">
+            <span>CH1 &nbsp;|a| &nbsp;g</span>
+            <span class="scope__state" id="scopeState">MONITORING</span>
+          </div>
+          <canvas id="scope" width="640" height="300"></canvas>
+          <figcaption class="scope__foot mono">
+            <span>Fig. 01 — Simulated IMU magnitude, GuardianBand logic</span>
+            <span id="scopeClock">t = 0.00 s</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="wrap">
+        <dl class="facts">
+          <div><dt>Currently</dt><dd>Third year, Biomedical Engineering</dd></div>
+          <div><dt>Clinical exposure</dt><dd>MRI Dept., Sahyadri Diagnostic Centre</dd></div>
+          <div><dt>NPTEL</dt><dd>Top 1% — Adv. Engineering Mathematics</dd></div>
+          <div><dt>Based in</dt><dd>Manipal, Karnataka</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="wrap split">
+        <header class="section__head">
+          <span class="num mono">01</span>
+          <h2>About</h2>
+        </header>
+        <div class="split__body">
+          <p class="big">
+            I study Biomedical Engineering at Manipal Institute of Technology. My interest is the
+            instrument side of medicine — how a scanner turns physics into an image, and how a small
+            sensor on the body can recognise that something has gone wrong.
+          </p>
+          <p>
+            Last summer I trained in the MRI department of a multi-modality diagnostic centre running a
+            3&nbsp;T system. Alongside coursework I keep a strong mathematics base, build embedded
+            prototypes around Arduino and IMU sensors, and design and ship my own web tools. Outside the
+            syllabus I sit on the management committee of IE Aerospace, MIT Manipal.
+          </p>
+          <ul class="tags" aria-label="Areas of interest">
+            <li>Medical imaging</li>
+            <li>MRI systems</li>
+            <li>Biomedical instrumentation</li>
+            <li>Wearable sensing</li>
+            <li>Aerospace</li>
+            <li>Product &amp; interface design</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section" id="experience">
+      <div class="wrap split">
+        <header class="section__head">
+          <span class="num mono">02</span>
+          <h2>Experience</h2>
+        </header>
+        <div class="split__body">
+          <article class="role">
+            <div class="role__meta mono">
+              <span>22 Jun — 21 Jul 2026</span>
+              <span>Aurangabad, MH</span>
+            </div>
+            <div class="role__main">
+              <h3>Intern, MRI Department</h3>
+              <p class="role__org">Sahyadri Diagnostic Centre <span>· Unit of Sahyadri Imaging Pvt. Ltd.</span></p>
+              <p>
+                Practical training in the MRI department of a diagnostic centre operating a Siemens 3&nbsp;Tesla MRI,
+                384-slice cardiac CT, DR/CR, ultrasound and CBCT.
+              </p>
+              <ul class="ticks">
+                <li>MRI physics and system components — magnet, gradients, RF coils and supporting subsystems.</li>
+                <li>End-to-end imaging workflow, from patient screening and handling through acquisition.</li>
+                <li>MR safety protocols, quality assurance routines and preventive maintenance.</li>
+                <li>Operation of advanced diagnostic imaging equipment under clinical supervision.</li>
+              </ul>
+              <a class="proof" href="docs/sahyadri-mri-internship-certificate.jpg" target="_blank" rel="noopener">
+                <span class="proof__label mono">Proof</span>
+                Internship completion certificate
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="role">
+            <div class="role__meta mono">
+              <span>Current</span>
+              <span>MIT Manipal</span>
+            </div>
+            <div class="role__main">
+              <h3>Management Committee Member</h3>
+              <p class="role__org">IE Aerospace <span>· Student club, MIT Manipal</span></p>
+              <p>
+                Part of the committee that runs the club's activities and events for students interested in
+                aeronautics and aerospace engineering.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects">
+      <div class="wrap">
+        <header class="section__head section__head--row">
+          <span class="num mono">03</span>
+          <h2>Projects</h2>
+        </header>
+
+        <!-- GuardianBand -->
+        <article class="case">
+          <div class="case__intro">
+            <p class="case__kicker mono"><span class="pill pill--live">In development</span> Embedded · Healthcare</p>
+            <h3 class="case__title">GuardianBand</h3>
+            <p class="case__sub">A wearable fall-detection and emergency-alert system for elderly and at-risk patients.</p>
+            <p>
+              People living alone can lie undiscovered for hours after a fall or a faint. GuardianBand is a
+              wrist or waist-worn device that watches motion and posture, decides when an event looks like a
+              genuine emergency, and texts a caregiver — while giving the wearer a few seconds to cancel a
+              false alarm.
+            </p>
+            <p class="muted">
+              The concept and detection logic are documented; hardware build begins this semester under faculty
+              guidance. Figure 01 above is an illustrative simulation of the logic, not recorded data.
+            </p>
+            <dl class="spec">
+              <div><dt>Controller</dt><dd>Arduino UNO</dd></div>
+              <div><dt>Sensing</dt><dd>MPU-6050 6-axis IMU (I²C)</dd></div>
+              <div><dt>Alert</dt><dd>SIM900A GSM · SMS</dd></div>
+              <div><dt>Interface</dt><dd>Buzzer · cancel button · status LEDs</dd></div>
+            </dl>
+            <a class="proof" href="docs/guardianband-concept-report.pdf" target="_blank" rel="noopener">
+              <span class="proof__label mono">Doc</span>
+              Concept notes (handwritten, PDF)
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg>
+            </a>
+          </div>
+
+          <ol class="flow" aria-label="Detection pipeline">
+            <li><span class="mono">01</span><div><b>Sample</b>Read acceleration and angular rate from the IMU continuously.</div></li>
+            <li><span class="mono">02</span><div><b>Impact</b>Flag a free-fall dip followed by a sharp acceleration spike.</div></li>
+            <li><span class="mono">03</span><div><b>Orientation</b>Confirm a significant change in body angle.</div></li>
+            <li><span class="mono">04</span><div><b>Inactivity</b>Watch for stillness and absence of recovery movement.</div></li>
+            <li><span class="mono">05</span><div><b>Warn</b>Sound the buzzer; the wearer can press cancel.</div></li>
+            <li class="flow__end"><span class="mono">06</span><div><b>Alert</b>No cancel — SMS goes to predefined contacts.</div></li>
+          </ol>
+        </article>
+
+        <div class="grid2">
+          <!-- Momentum -->
+          <article class="card">
+            <p class="case__kicker mono"><span class="pill">Live</span> Web app · Design</p>
+            <h3>Momentum</h3>
+            <p>
+              A personal planning and habit-tracking web app I designed and built from scratch: daily tasks
+              with a scheduler, habits, focus timer, goals, calendar, finances and a fitness module with
+              an offline calorie estimator. Data stays on the user's own device.
+            </p>
+            <p class="stack mono">HTML · CSS · JavaScript · SVG charts · GitHub Pages</p>
+            <div class="card__links">
+              <a class="proof" href="https://abdulhaq7378-hash.github.io/momentum/" target="_blank" rel="noopener">
+                Open app <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg>
+              </a>
+              <a class="proof" href="https://github.com/abdulhaq7378-hash/momentum" target="_blank" rel="noopener">
+                Source <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- KADAL -->
+          <article class="card">
+            <p class="case__kicker mono"><span class="pill">Concept</span> Web · Brand</p>
+            <h3>KADAL</h3>
+            <p>
+              A concept website for a fictional coastal Indian restaurant — built as a working prototype to
+              pitch custom sites to local restaurants with no web presence. I owned the component
+              architecture, design system, responsive layout and motion.
+            </p>
+            <p class="stack mono">React 18 · TypeScript · Vite · Tailwind · Framer Motion</p>
+            <p class="card__note mono">Next: a live café website for a client — case study to follow.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CREDENTIALS ============ -->
+    <section class="section" id="credentials">
+      <div class="wrap">
+        <header class="section__head section__head--row">
+          <span class="num mono">04</span>
+          <h2>Credentials</h2>
+          <p class="section__note">Every entry links to the original document.</p>
+        </header>
+
+        <div class="creds">
+          <article class="cred cred--feature">
+            <div class="cred__score">
+              <span class="cred__big">91</span><span class="cred__unit">/100</span>
+              <span class="cred__badge mono">Elite + Gold · Top 1%</span>
+            </div>
+            <div class="cred__body">
+              <h3>Advanced Engineering Mathematics</h3>
+              <p class="cred__org">NPTEL · IIT Kharagpur · 12-week course, Jan–Apr 2026</p>
+              <p class="cred__detail mono">Assignments 23.75/25 · Exam 67.5/75 · 815 candidates certified · 4 credits</p>
+              <p class="cred__detail mono">Roll no. NPTEL26MA37S990100380</p>
+            </div>
+            <a class="proof" href="docs/nptel-advanced-engineering-mathematics.pdf" target="_blank" rel="noopener">
+              Certificate <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg>
+            </a>
+          </article>
+
+          <article class="cred">
+            <div class="cred__score">
+              <span class="cred__big">75</span><span class="cred__unit">/100</span>
+              <span class="cred__badge mono">Elite + Silver</span>
+            </div>
+            <div class="cred__body">
+              <h3>Introduction to Electrical Engineering</h3>
+              <p class="cred__org">NPTEL · IIT Madras · 12-week course, Jan–Apr 2026</p>
+              <p class="cred__detail mono">Assignments 23.44/25 · Exam 51.06/75 · 4 credits</p>
+              <p class="cred__detail mono">Roll no. NPTEL26EE30S790100005</p>
+            </div>
+            <a class="proof" href="docs/nptel-introduction-to-electrical-engineering.pdf" target="_blank" rel="noopener">
+              Certificate <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg>
+            </a>
+          </article>
+
+          <article class="cred">
+            <div class="cred__score cred__score--icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="6"/><ellipse cx="24" cy="24" rx="20" ry="8" transform="rotate(-25 24 24)"/><circle cx="41" cy="16" r="2.2" class="fill"/></svg>
+            </div>
+            <div class="cred__body">
+              <h3>Bharatiya Antariksh Hackathon 2026</h3>
+              <p class="cred__org">Presented by ISRO · Powered by Hack2skill</p>
+              <p class="cred__detail mono">Participant — idea submission to the national space-innovation challenge</p>
+              <p class="cred__detail mono">Certificate ID 2026H2S06BAH-P38765</p>
+            </div>
+            <a class="proof" href="docs/bharatiya-antariksh-hackathon-2026.pdf" target="_blank" rel="noopener">
+              Certificate <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg>
+            </a>
+          </article>
+
+          <article class="cred">
+            <div class="cred__score cred__score--icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><rect x="9" y="9" width="30" height="30" rx="15"/><rect x="16" y="16" width="16" height="16" rx="8"/><path d="M24 4v6M24 38v6M4 24h6M38 24h6"/></svg>
+            </div>
+            <div class="cred__body">
+              <h3>MRI Department Internship</h3>
+              <p class="cred__org">Sahyadri Diagnostic Centre, Aurangabad · 22 Jun – 21 Jul 2026</p>
+              <p class="cred__detail mono">Signed by Director / Authorised Signatory, DMRD DNB (Radiology)</p>
+            </div>
+            <a class="proof" href="docs/sahyadri-mri-internship-certificate.jpg" target="_blank" rel="noopener">
+              Certificate <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg>
+            </a>
+          </article>
+        </div>
+        <p class="verify muted">NPTEL certificates can be independently verified on <a href="https://nptel.ac.in" target="_blank" rel="noopener">nptel.ac.in</a> using the roll numbers above.</p>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section" id="skills">
+      <div class="wrap split">
+        <header class="section__head">
+          <span class="num mono">05</span>
+          <h2>Toolkit</h2>
+        </header>
+        <div class="split__body skills">
+          <div>
+            <h3 class="mono">Biomedical</h3>
+            <p>MRI physics &amp; system components · Imaging workflow · MR safety · Imaging QA &amp; preventive maintenance · Biomedical instrumentation</p>
+          </div>
+          <div>
+            <h3 class="mono">Engineering</h3>
+            <p>Engineering mathematics &amp; modelling · Electrical fundamentals · Arduino &amp; sensor interfacing (I²C) · Embedded C</p>
+          </div>
+          <div>
+            <h3 class="mono">Software &amp; design</h3>
+            <p>MATLAB · Python · JavaScript · React · TypeScript · Tailwind · Git &amp; GitHub · UI / visual design</p>
+          </div>
+          <div>
+            <h3 class="mono">Languages</h3>
+            <p>English (professional) · Hindi &amp; Urdu (native) · Marathi (conversational)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <p class="eyebrow mono">06 — Contact</p>
+        <h2 class="contact__title">Looking for an internship<br>where I can <em>build and learn</em>.</h2>
+        <p class="contact__lede">Medical devices, imaging, embedded systems or R&amp;D — I'd be glad to hear from you.</p>
+        <ul class="contact__list">
+          <li><span class="mono">Email</span><a href="mailto:abdulhaq7378@gmail.com">abdulhaq7378@gmail.com</a></li>
+          <li><span class="mono">Phone</span><a href="tel:+917378456877">+91 73784 56877</a></li>
+          <li><span class="mono">GitHub</span><a href="https://github.com/abdulhaq7378-hash" target="_blank" rel="noopener">abdulhaq7378-hash</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner mono">
+      <span>© <span id="year">2026</span> Mohammed Abdul Haq</span>
+      <span>Designed &amp; built by hand · Manipal</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
