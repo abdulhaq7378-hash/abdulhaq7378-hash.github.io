@@ -3,371 +3,463 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mohammed Abdul Haq — Biomedical Engineering</title>
-  <meta name="description" content="Mohammed Abdul Haq — third-year Biomedical Engineering undergraduate at MIT Manipal. MRI internship, embedded sensing, engineering mathematics.">
-  <meta name="theme-color" content="#0c0d0d">
-  <meta property="og:title" content="Mohammed Abdul Haq — Biomedical Engineering">
-  <meta property="og:description" content="B.Tech Biomedical Engineering, MIT Manipal. Medical imaging, embedded sensing, engineering mathematics.">
+  <title>Mohammed Abdul Haq — Biomedical Engineer</title>
+  <meta name="description" content="Mohammed Abdul Haq — B.Tech Biomedical Engineering, MIT Manipal. Medical imaging, wearable sensing and the mathematics underneath both.">
+  <meta name="theme-color" content="#06080a">
+  <meta property="og:title" content="Mohammed Abdul Haq — Biomedical Engineer">
+  <meta property="og:description" content="B.Tech Biomedical Engineering, MIT Manipal. MRI systems, embedded sensing, engineering mathematics.">
   <meta property="og:type" content="website">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c0d0d'/%3E%3Cpath d='M4 18h6l2-6 4 12 3-9 2 3h7' fill='none' stroke='%23ff6a3d' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <meta property="og:url" content="https://abdulhaq7378-hash.github.io/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2306080a'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23e9e6df' stroke-width='1.6'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23ff5a3c'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <header class="topbar">
-    <div class="wrap topbar__inner">
-      <a class="mark" href="#top" aria-label="Mohammed Abdul Haq — home">
-        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 18h6l2-6 4 12 3-9 2 3h9"/></svg>
-        <span>M. Abdul Haq</span>
-      </a>
-      <nav class="nav" aria-label="Sections">
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#credentials">Credentials</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <span class="status"><i></i>Open to internships</span>
+  <!-- boot / calibration screen -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__panel loader__panel--top"></div>
+    <div class="loader__panel loader__panel--bot"></div>
+    <div class="loader__ui mono">
+      <span class="loader__label" id="ldLabel">Calibrating</span>
+      <span class="loader__num" id="ldNum">000</span>
+      <span class="loader__unit">/ 100</span>
+    </div>
+    <div class="loader__scan" id="ldScan"></div>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span><span class="cursor__label" id="cursorLabel"></span></div>
+
+  <header class="nav" id="nav">
+    <a class="nav__mark" href="#top" aria-label="Back to top">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="9.5"/><circle cx="16" cy="16" r="3.2" class="f"/></svg>
+      <span>Abdul Haq</span>
+    </a>
+    <nav class="nav__links" aria-label="Sections">
+      <a href="#profile">Profile</a>
+      <a href="#imaging">Imaging</a>
+      <a href="#guardianband">GuardianBand</a>
+      <a href="#work">Work</a>
+      <a href="#credentials">Credentials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav__right">
+      <span class="nav__clock mono" id="clock">Manipal · --:--</span>
+      <a class="nav__cta" href="#contact"><i></i>Open to internships</a>
     </div>
   </header>
 
   <main id="main">
-    <!-- ============ HERO ============ -->
+
+    <!-- ================= HERO ================= -->
     <section class="hero" id="top">
-      <div class="wrap hero__grid">
-        <div class="hero__text">
-          <p class="eyebrow mono">B.Tech Biomedical Engineering &nbsp;/&nbsp; MIT Manipal &nbsp;/&nbsp; 2024–28</p>
-          <h1 class="hero__title">Mohammed<br>Abdul Haq<span class="dot">.</span></h1>
-          <p class="hero__lede">
-            Biomedical engineering undergraduate working where <em>physiology meets hardware</em> —
-            medical imaging, wearable sensing and the mathematics underneath both.
+      <canvas class="hero__field" id="field" aria-hidden="true"></canvas>
+      <div class="hero__fallback" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <p class="hero__eyebrow mono" data-hero>
+          <span>Biomedical engineering</span><span class="sep">/</span><span>Medical imaging</span><span class="sep">/</span><span>Embedded sensing</span>
+        </p>
+        <h1 class="hero__title">
+          <span class="line"><span class="split" data-split>Mohammed</span></span>
+          <span class="line"><span class="split" data-split>Abdul Haq</span></span>
+        </h1>
+        <div class="hero__foot">
+          <p class="hero__lede" data-hero>
+            Third-year B.Tech at MIT Manipal. I work where physiology meets hardware —
+            the physics inside a scanner, and the sensor on a wrist that knows when something has gone wrong.
           </p>
-          <div class="hero__actions">
-            <a class="btn btn--solid" href="#contact">Get in touch</a>
-            <a class="btn" href="#credentials">View credentials</a>
+          <div class="hero__meta mono" data-hero>
+            <span>Manipal, IN</span>
+            <span>13.35° N · 74.79° E</span>
+            <span class="hero__scroll"><i></i>Scroll</span>
           </div>
         </div>
-
-        <figure class="scope" aria-label="Illustrative accelerometer trace showing a detected fall">
-          <div class="scope__head mono">
-            <span>CH1 &nbsp;|a| &nbsp;g</span>
-            <span class="scope__state" id="scopeState">MONITORING</span>
-          </div>
-          <canvas id="scope" width="640" height="300"></canvas>
-          <figcaption class="scope__foot mono">
-            <span>Fig. 01 — Simulated IMU magnitude, GuardianBand logic</span>
-            <span id="scopeClock">t = 0.00 s</span>
-          </figcaption>
-        </figure>
       </div>
 
-      <div class="wrap">
-        <dl class="facts">
-          <div><dt>Currently</dt><dd>Third year, Biomedical Engineering</dd></div>
-          <div><dt>Clinical exposure</dt><dd>MRI Dept., Sahyadri Diagnostic Centre</dd></div>
-          <div><dt>NPTEL</dt><dd>Top 1% — Adv. Engineering Mathematics</dd></div>
-          <div><dt>Based in</dt><dd>Manipal, Karnataka</dd></div>
-        </dl>
+      <p class="hero__side mono" aria-hidden="true">B.Tech Biomedical Engineering — Manipal Institute of Technology — 2024 / 2028</p>
+
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker__track" id="ticker">
+          <span>MRI systems</span><span>Wearable sensing</span><span>Embedded C</span><span>Engineering mathematics</span><span>Imaging workflow</span><span>Interface design</span><span>Aerospace</span><span>Signal processing</span>
+        </div>
       </div>
     </section>
 
-    <!-- ============ ABOUT ============ -->
-    <section class="section" id="about">
-      <div class="wrap split">
-        <header class="section__head">
-          <span class="num mono">01</span>
-          <h2>About</h2>
-        </header>
-        <div class="split__body">
-          <p class="big">
-            I study Biomedical Engineering at Manipal Institute of Technology. My interest is the
-            instrument side of medicine — how a scanner turns physics into an image, and how a small
-            sensor on the body can recognise that something has gone wrong.
+    <!-- ================= PROFILE ================= -->
+    <section class="sec profile" id="profile">
+      <div class="wrap sec__grid">
+        <aside class="sec__aside">
+          <span class="idx mono">01</span>
+          <h2 class="sec__label">Profile</h2>
+        </aside>
+        <div class="sec__body">
+          <p class="statement" data-words>
+            Medicine is full of instruments that turn physics into decisions. I want to be the engineer who understands both ends of that chain — the coil and the clinician. Last summer I trained inside a 3&nbsp;Tesla MRI department. This year I'm building a wearable that can tell a fall from a stumble. In between, I keep the mathematics sharp and ship interfaces people actually use.
           </p>
-          <p>
-            Last summer I trained in the MRI department of a multi-modality diagnostic centre running a
-            3&nbsp;T system. Alongside coursework I keep a strong mathematics base, build embedded
-            prototypes around Arduino and IMU sensors, and design and ship my own web tools. Outside the
-            syllabus I sit on the management committee of IE Aerospace, MIT Manipal.
-          </p>
-          <ul class="tags" aria-label="Areas of interest">
-            <li>Medical imaging</li>
-            <li>MRI systems</li>
-            <li>Biomedical instrumentation</li>
-            <li>Wearable sensing</li>
-            <li>Aerospace</li>
-            <li>Product &amp; interface design</li>
+
+          <ul class="stats" aria-label="Key numbers">
+            <li><span class="stats__n"><b data-count="91">0</b><small>/100</small></span><span class="stats__l mono">NPTEL Adv. Engineering Mathematics · Top 1%</span></li>
+            <li><span class="stats__n"><b data-count="3">0</b><small>T</small></span><span class="stats__l mono">Field strength of the MRI system I trained on</span></li>
+            <li><span class="stats__n"><b data-count="6">0</b><small>-axis</small></span><span class="stats__l mono">IMU at the heart of GuardianBand</span></li>
+            <li><span class="stats__n"><b data-count="2028">0</b></span><span class="stats__l mono">Graduating class · available for internships before</span></li>
           </ul>
+
+          <div class="profile__row">
+            <div>
+              <h3 class="mono">Interests</h3>
+              <p>Magnetic resonance imaging · Biomedical instrumentation · Medical image processing · Wearable and embedded systems · Aeronautics · Product and interface design</p>
+            </div>
+            <div>
+              <h3 class="mono">Beyond the syllabus</h3>
+              <p>Management committee member, <b>IE Aerospace</b>, MIT Manipal — the student aerospace society. Bharatiya Antariksh Hackathon 2026 participant (ISRO × Hack2skill).</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ EXPERIENCE ============ -->
-    <section class="section" id="experience">
-      <div class="wrap split">
-        <header class="section__head">
-          <span class="num mono">02</span>
-          <h2>Experience</h2>
-        </header>
-        <div class="split__body">
-          <article class="role">
-            <div class="role__meta mono">
-              <span>22 Jun — 21 Jul 2026</span>
-              <span>Aurangabad, MH</span>
-            </div>
-            <div class="role__main">
-              <h3>Intern, MRI Department</h3>
-              <p class="role__org">Sahyadri Diagnostic Centre <span>· Unit of Sahyadri Imaging Pvt. Ltd.</span></p>
-              <p>
-                Practical training in the MRI department of a diagnostic centre operating a Siemens 3&nbsp;Tesla MRI,
-                384-slice cardiac CT, DR/CR, ultrasound and CBCT.
-              </p>
-              <ul class="ticks">
-                <li>MRI physics and system components — magnet, gradients, RF coils and supporting subsystems.</li>
-                <li>End-to-end imaging workflow, from patient screening and handling through acquisition.</li>
-                <li>MR safety protocols, quality assurance routines and preventive maintenance.</li>
-                <li>Operation of advanced diagnostic imaging equipment under clinical supervision.</li>
-              </ul>
-              <a class="proof" href="docs/sahyadri-mri-internship-certificate.jpg" target="_blank" rel="noopener">
-                <span class="proof__label mono">Proof</span>
-                Internship completion certificate
-                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg>
-              </a>
-            </div>
-          </article>
-
-          <article class="role">
-            <div class="role__meta mono">
-              <span>Current</span>
-              <span>MIT Manipal</span>
-            </div>
-            <div class="role__main">
-              <h3>Management Committee Member</h3>
-              <p class="role__org">IE Aerospace <span>· Student club, MIT Manipal</span></p>
-              <p>
-                Part of the committee that runs the club's activities and events for students interested in
-                aeronautics and aerospace engineering.
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ PROJECTS ============ -->
-    <section class="section" id="projects">
-      <div class="wrap">
-        <header class="section__head section__head--row">
-          <span class="num mono">03</span>
-          <h2>Projects</h2>
-        </header>
-
-        <!-- GuardianBand -->
-        <article class="case">
-          <div class="case__intro">
-            <p class="case__kicker mono"><span class="pill pill--live">In development</span> Embedded · Healthcare</p>
-            <h3 class="case__title">GuardianBand</h3>
-            <p class="case__sub">A wearable fall-detection and emergency-alert system for elderly and at-risk patients.</p>
-            <p>
-              People living alone can lie undiscovered for hours after a fall or a faint. GuardianBand is a
-              wrist or waist-worn device that watches motion and posture, decides when an event looks like a
-              genuine emergency, and texts a caregiver — while giving the wearer a few seconds to cancel a
-              false alarm.
+    <!-- ================= IMAGING (pinned scanner) ================= -->
+    <section class="sec scan" id="imaging">
+      <div class="scan__stage" id="scanStage">
+        <div class="wrap scan__grid">
+          <div class="scan__text">
+            <span class="idx mono">02 <em id="scanPhase">/ 01</em></span>
+            <h2 class="sec__title">Inside a<br>3&nbsp;Tesla scanner.</h2>
+            <p class="scan__role mono">MRI Department intern · Sahyadri Diagnostic Centre, Aurangabad · 22 Jun – 21 Jul 2026</p>
+            <p class="scan__p">
+              A month of practical training in the MRI department of a multi-modality diagnostic centre running a
+              Siemens 3&nbsp;T system alongside 384-slice cardiac CT, DR/CR, ultrasound and CBCT.
             </p>
-            <p class="muted">
-              The concept and detection logic are documented; hardware build begins this semester under faculty
-              guidance. Figure 01 above is an illustrative simulation of the logic, not recorded data.
-            </p>
-            <dl class="spec">
-              <div><dt>Controller</dt><dd>Arduino UNO</dd></div>
-              <div><dt>Sensing</dt><dd>MPU-6050 6-axis IMU (I²C)</dd></div>
-              <div><dt>Alert</dt><dd>SIM900A GSM · SMS</dd></div>
-              <div><dt>Interface</dt><dd>Buzzer · cancel button · status LEDs</dd></div>
-            </dl>
-            <a class="proof" href="docs/guardianband-concept-report.pdf" target="_blank" rel="noopener">
-              <span class="proof__label mono">Doc</span>
-              Concept notes (handwritten, PDF)
-              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg>
+            <ol class="scan__steps" id="scanSteps">
+              <li><div><b>Magnet &amp; system components</b><span>Superconducting magnet, gradient chain, RF coils — identified in situ on an installed high-field scanner.</span></div></li>
+              <li><div><b>Imaging workflow</b><span>Patient screening and handling, protocol selection, acquisition and archival.</span></div></li>
+              <li><div><b>Safety &amp; QA</b><span>MR safety zoning, ferromagnetic screening, quality-assurance routines and preventive maintenance.</span></div></li>
+              <li><div><b>Operation</b><span>Operation of advanced diagnostic imaging equipment under clinical supervision.</span></div></li>
+            </ol>
+            <a class="link" href="docs/sahyadri-mri-internship-certificate.jpg" target="_blank" rel="noopener" data-cursor="Open">
+              <span class="mono">Proof</span> Internship completion certificate <i></i>
             </a>
           </div>
 
-          <ol class="flow" aria-label="Detection pipeline">
-            <li><span class="mono">01</span><div><b>Sample</b>Read acceleration and angular rate from the IMU continuously.</div></li>
-            <li><span class="mono">02</span><div><b>Impact</b>Flag a free-fall dip followed by a sharp acceleration spike.</div></li>
-            <li><span class="mono">03</span><div><b>Orientation</b>Confirm a significant change in body angle.</div></li>
-            <li><span class="mono">04</span><div><b>Inactivity</b>Watch for stillness and absence of recovery movement.</div></li>
-            <li><span class="mono">05</span><div><b>Warn</b>Sound the buzzer; the wearer can press cancel.</div></li>
-            <li class="flow__end"><span class="mono">06</span><div><b>Alert</b>No cancel — SMS goes to predefined contacts.</div></li>
-          </ol>
+          <figure class="scan__fig" aria-label="Cross-section of an MRI scanner, drawn as you scroll">
+            <svg class="scan__svg" id="scanSvg" viewBox="0 0 820 620" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <defs>
+                <radialGradient id="boreGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0" stop-color="#ff5a3c" stop-opacity=".22"/>
+                  <stop offset="1" stop-color="#ff5a3c" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <!-- grid -->
+              <g class="s-grid" stroke="rgba(233,230,223,.06)" stroke-width="1">
+                <path d="M410 0V620M0 300H820"/>
+                <circle cx="410" cy="300" r="280"/>
+              </g>
+              <!-- housing -->
+              <g class="s-draw" data-ph="0">
+                <rect x="110" y="50" width="600" height="520" rx="120" stroke="var(--bone)" stroke-width="1.6"/>
+                <path d="M410 50V22M396 22h28" stroke="var(--bone)" stroke-width="1.6"/>
+              </g>
+              <!-- bore -->
+              <g class="s-draw" data-ph="1">
+                <circle cx="410" cy="300" r="132" fill="url(#boreGlow)" stroke="var(--bone)" stroke-width="1.6"/>
+              </g>
+              <!-- magnet -->
+              <g class="s-draw" data-ph="2">
+                <circle cx="410" cy="300" r="238" stroke="var(--bone)" stroke-width="1.2"/>
+                <circle cx="410" cy="300" r="226" stroke="var(--bone)" stroke-width="1.2" stroke-dasharray="6 7"/>
+              </g>
+              <!-- gradient coils -->
+              <g class="s-draw" data-ph="3">
+                <circle cx="410" cy="300" r="196" stroke="var(--bone)" stroke-width="1.2"/>
+                <circle cx="410" cy="300" r="184" stroke="var(--bone)" stroke-width="1.2"/>
+                <path d="M410 104a196 196 0 0 1 0 392" stroke="var(--accent)" stroke-width="2" class="s-hi"/>
+              </g>
+              <!-- rf coil -->
+              <g class="s-draw" data-ph="4">
+                <circle cx="410" cy="300" r="158" stroke="var(--bone)" stroke-width="1.2"/>
+                <path d="M264 258c26-10 44-16 78-16s52 6 78 16M264 342c26 10 44 16 78 16s52-6 78-16" stroke="var(--bone)" stroke-width="1.2"/>
+              </g>
+              <!-- table -->
+              <g class="s-draw" data-ph="5">
+                <path d="M292 332h500" stroke="var(--bone)" stroke-width="3"/>
+                <path d="M292 344h500" stroke="var(--bone)" stroke-width="1.2"/>
+                <path d="M700 344v210M760 344v210M690 554h80" stroke="var(--bone)" stroke-width="1.2"/>
+                <path d="M410 268v64" stroke="var(--accent)" stroke-width="1.2" stroke-dasharray="3 5"/>
+              </g>
+              <!-- leaders -->
+              <g class="s-lead" stroke="rgba(233,230,223,.45)" stroke-width="1">
+                <path data-ph="0" d="M170 120L120 70H20"/>
+                <path data-ph="2" d="M578 132L620 96H800"/>
+                <path data-ph="3" d="M570 188L640 176H800"/>
+                <path data-ph="4" d="M558 246L660 256H800"/>
+                <path data-ph="5" d="M640 344L690 404H800"/>
+              </g>
+            </svg>
+            <ul class="scan__labels mono" id="scanLabels">
+              <li data-ph="0" style="--x:2.4%;--y:11.3%"><b>Housing &amp; quench vent</b><span>cryostat shell · helium vent</span></li>
+              <li data-ph="2" style="--x:75.6%;--y:15.5%"><b>Superconducting magnet</b><span>3.0 T · liquid-helium cooled</span></li>
+              <li data-ph="3" style="--x:78%;--y:28.4%"><b>Gradient coils</b><span>Gx · Gy · Gz — spatial encoding</span></li>
+              <li data-ph="4" style="--x:80.5%;--y:41.3%"><b>RF body coil</b><span>transmit · receive</span></li>
+              <li data-ph="5" style="--x:84.1%;--y:65.2%"><b>Patient table</b><span>isocentre alignment</span></li>
+            </ul>
+            <figcaption class="mono">Fig. 02 — Front elevation, simplified. Drawn from what I learned on site.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= GUARDIANBAND (horizontal) ================= -->
+    <section class="sec hz" id="guardianband">
+      <div class="hz__pin" id="hzPin">
+        <div class="hz__track" id="hzTrack">
+
+          <article class="hz__p hz__p--intro">
+            <span class="idx mono">03 <em>/ Project</em></span>
+            <p class="pill pill--live mono">In development · Sep 2026</p>
+            <h2 class="hz__title">Guardian<br>Band<span class="dot">.</span></h2>
+            <p class="hz__sub">A wearable that calls for help when the wearer can't.</p>
+            <p class="hz__p-text">
+              People living alone can lie undiscovered for hours after a fall or a faint. GuardianBand watches
+              motion and posture, decides when an event looks like a genuine emergency, and texts a caregiver —
+              while giving the wearer a few seconds to cancel a false alarm.
+            </p>
+            <div class="hz__links">
+              <a class="link" href="docs/guardianband-concept-report.pdf" target="_blank" rel="noopener" data-cursor="Open"><span class="mono">Doc</span> Concept notes <i></i></a>
+              <span class="hz__hint mono">Scroll to explore →</span>
+            </div>
+          </article>
+
+          <article class="hz__p">
+            <span class="idx mono">Hardware</span>
+            <h3 class="hz__h">Six parts, one job.</h3>
+            <ul class="parts">
+              <li><svg viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="28" rx="3"/><path d="M12 10V6M18 10V6M24 10V6M30 10V6M36 10V6M12 42v-4M18 42v-4M24 42v-4M30 42v-4M36 42v-4"/><rect x="16" y="18" width="16" height="12" rx="1"/></svg><b>Arduino UNO</b><span>Controller — samples, decides, drives outputs</span></li>
+                <li><svg viewBox="0 0 48 48"><rect x="10" y="10" width="28" height="28" rx="3"/><circle cx="24" cy="24" r="7"/><path d="M24 17v14M17 24h14"/></svg><b>MPU-6050</b><span>6-axis IMU — accelerometer + gyroscope over I²C</span></li>
+              <li><svg viewBox="0 0 48 48"><path d="M8 34c6-14 26-14 32 0"/><path d="M14 30c4-8 16-8 20 0"/><circle cx="24" cy="34" r="2.5"/><path d="M24 8v8"/></svg><b>SIM900A GSM</b><span>Sends the SMS alert to predefined contacts</span></li>
+              <li><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="12"/><circle cx="24" cy="24" r="4"/><path d="M40 16c3 5 3 11 0 16M8 16c-3 5-3 11 0 16"/></svg><b>Buzzer</b><span>Audible warning before any alert is sent</span></li>
+              <li><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="14"/><circle cx="24" cy="24" r="6"/></svg><b>Cancel button</b><span>Wearer dismisses false alarms in the warning window</span></li>
+              <li><svg viewBox="0 0 48 48"><circle cx="12" cy="24" r="4"/><circle cx="24" cy="24" r="4"/><circle cx="36" cy="24" r="4"/></svg><b>Status LEDs</b><span>Armed · warning · alert sent</span></li>
+            </ul>
+          </article>
+
+          <article class="hz__p hz__p--sim">
+            <div class="sim">
+              <div class="sim__head mono">
+                <span>CH1 · |a| · g</span>
+                <span id="simState" class="sim__state">Monitoring</span>
+              </div>
+              <canvas id="sim" width="900" height="380"></canvas>
+              <div class="sim__foot mono">
+                <span>Fig. 03 — Simulated IMU magnitude through one fall event</span>
+                <span id="simClock">t = 0.00 s</span>
+              </div>
+            </div>
+            <div class="sim__side">
+              <span class="idx mono">Detection</span>
+              <h3 class="hz__h">Not one threshold — four conditions.</h3>
+              <p>Normal life is full of things that look like falls: sitting down hard, jumping, dropping the band. So the logic only escalates when several signals agree.</p>
+              <dl class="cond">
+                <div><dt class="mono">01</dt><dd>Free-fall dip below <b>0.4 g</b>, then an impact spike above <b>2.5 g</b></dd></div>
+                <div><dt class="mono">02</dt><dd>Significant change in body orientation from the gyroscope</dd></div>
+                <div><dt class="mono">03</dt><dd>Stillness — no recovery movement in the following seconds</dd></div>
+                <div><dt class="mono">04</dt><dd>Warning window passes with no cancel press</dd></div>
+              </dl>
+            </div>
+          </article>
+
+          <article class="hz__p">
+            <span class="idx mono">Pipeline</span>
+            <h3 class="hz__h">From sample to SMS.</h3>
+            <ol class="flow">
+              <li><span class="mono">01</span><div><b>Sample</b>Read acceleration and angular rate continuously from the IMU.</div></li>
+              <li><span class="mono">02</span><div><b>Impact</b>Flag a free-fall dip followed by a sharp acceleration spike.</div></li>
+              <li><span class="mono">03</span><div><b>Orientation</b>Confirm a large change in body angle.</div></li>
+              <li><span class="mono">04</span><div><b>Inactivity</b>Watch for stillness and absence of recovery movement.</div></li>
+              <li><span class="mono">05</span><div><b>Warn</b>Sound the buzzer. The wearer can press cancel.</div></li>
+              <li class="flow__end"><span class="mono">06</span><div><b>Alert</b>No cancel — SMS goes out to predefined contacts.</div></li>
+            </ol>
+          </article>
+
+          <article class="hz__p hz__p--status">
+            <span class="idx mono">Status</span>
+            <h3 class="hz__h">Where it stands.</h3>
+            <p>The concept, component selection and detection logic are documented. The hardware build begins this semester under faculty guidance — this page will grow with photos, code and test data as it does.</p>
+            <h4 class="mono">Planned after v1</h4>
+            <ul class="next">
+              <li>GPS location in the alert</li>
+              <li>Pulse sensing to improve faint detection</li>
+              <li>Companion mobile app</li>
+              <li>Cloud-side monitoring</li>
+              <li>Learned fall classification</li>
+            </ul>
+            <p class="hz__honest mono">Fig. 03 is a simulation of the logic, not recorded data.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WORK ================= -->
+    <section class="sec work" id="work">
+      <div class="wrap">
+        <header class="sec__head">
+          <span class="idx mono">04</span>
+          <h2 class="sec__title">Selected work</h2>
+          <p class="sec__note">Things I designed and built end to end.</p>
+        </header>
+
+        <article class="work__item" data-reveal>
+          <a class="work__media" href="https://abdulhaq7378-hash.github.io/momentum/" target="_blank" rel="noopener" data-cursor="Open app">
+            <img src="assets/momentum.jpg" alt="Momentum — planning dashboard with progress ring, schedule and tasks" loading="lazy" width="1440" height="900">
+          </a>
+          <div class="work__text">
+            <span class="mono work__k">01 · Web app · Live</span>
+            <h3>Momentum</h3>
+            <p>A personal planning system: scheduler, habits, focus timer, goals, calendar, finances and a fitness module with an offline calorie estimator. Every chart is hand-built SVG. Data never leaves the user's device.</p>
+            <p class="mono work__stack">HTML · CSS · JavaScript · GitHub Pages</p>
+            <div class="work__links">
+              <a class="link" href="https://abdulhaq7378-hash.github.io/momentum/" target="_blank" rel="noopener">Open app <i></i></a>
+              <a class="link" href="https://github.com/abdulhaq7378-hash/momentum" target="_blank" rel="noopener">Source <i></i></a>
+            </div>
+          </div>
         </article>
 
-        <div class="grid2">
-          <!-- Momentum -->
-          <article class="card">
-            <p class="case__kicker mono"><span class="pill">Live</span> Web app · Design</p>
-            <h3>Momentum</h3>
-            <p>
-              A personal planning and habit-tracking web app I designed and built from scratch: daily tasks
-              with a scheduler, habits, focus timer, goals, calendar, finances and a fitness module with
-              an offline calorie estimator. Data stays on the user's own device.
-            </p>
-            <p class="stack mono">HTML · CSS · JavaScript · SVG charts · GitHub Pages</p>
-            <div class="card__links">
-              <a class="proof" href="https://abdulhaq7378-hash.github.io/momentum/" target="_blank" rel="noopener">
-                Open app <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg>
-              </a>
-              <a class="proof" href="https://github.com/abdulhaq7378-hash/momentum" target="_blank" rel="noopener">
-                Source <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg>
-              </a>
-            </div>
-          </article>
-
-          <!-- KADAL -->
-          <article class="card">
-            <p class="case__kicker mono"><span class="pill">Concept</span> Web · Brand</p>
+        <article class="work__item work__item--flip" data-reveal>
+          <div class="work__media" data-cursor="Concept">
+            <img src="assets/kadal.jpg" alt="KADAL — coastal Indian restaurant website concept, hero section" loading="lazy" width="1440" height="900">
+          </div>
+          <div class="work__text">
+            <span class="mono work__k">02 · Website · Concept</span>
             <h3>KADAL</h3>
-            <p>
-              A concept website for a fictional coastal Indian restaurant — built as a working prototype to
-              pitch custom sites to local restaurants with no web presence. I owned the component
-              architecture, design system, responsive layout and motion.
-            </p>
-            <p class="stack mono">React 18 · TypeScript · Vite · Tailwind · Framer Motion</p>
-            <p class="card__note mono">Next: a live café website for a client — case study to follow.</p>
-          </article>
-        </div>
+            <p>A concept site for a fictional coastal Indian restaurant, built as a working prototype to pitch custom websites to local restaurants without a web presence. Component architecture, design system, layout and motion — all mine.</p>
+            <p class="mono work__stack">React 18 · TypeScript · Vite · Tailwind · Framer Motion · Lenis</p>
+          </div>
+        </article>
+
+        <article class="work__item" data-reveal>
+          <div class="work__media work__media--ferea" data-cursor="Soon">
+            <div class="ferea">
+              <span class="mono">Feréa Coffee House</span>
+              <b>Feréa</b>
+              <em>Specialty coffee. Thoughtfully made.</em>
+              <span class="mono">Manipal · in progress</span>
+            </div>
+          </div>
+          <div class="work__text">
+            <span class="mono work__k">03 · Website · In progress</span>
+            <h3>Feréa</h3>
+            <p>A café website for a specialty coffee house near Manipal Lake — brand, menu, story and visit pages. Currently in build; the case study lands here when it ships.</p>
+            <p class="mono work__stack">React 19 · Vite · Tailwind 4 · Framer Motion</p>
+          </div>
+        </article>
       </div>
     </section>
 
-    <!-- ============ CREDENTIALS ============ -->
-    <section class="section" id="credentials">
+    <!-- ================= CREDENTIALS ================= -->
+    <section class="sec creds" id="credentials">
       <div class="wrap">
-        <header class="section__head section__head--row">
-          <span class="num mono">04</span>
-          <h2>Credentials</h2>
-          <p class="section__note">Every entry links to the original document.</p>
+        <header class="sec__head">
+          <span class="idx mono">05</span>
+          <h2 class="sec__title">Credentials</h2>
+          <p class="sec__note">Tap or hover a row to preview. Every entry links to the original document.</p>
         </header>
 
-        <div class="creds">
-          <article class="cred cred--feature">
-            <div class="cred__score">
-              <span class="cred__big">91</span><span class="cred__unit">/100</span>
-              <span class="cred__badge mono">Elite + Gold · Top 1%</span>
-            </div>
-            <div class="cred__body">
-              <h3>Advanced Engineering Mathematics</h3>
-              <p class="cred__org">NPTEL · IIT Kharagpur · 12-week course, Jan–Apr 2026</p>
-              <p class="cred__detail mono">Assignments 23.75/25 · Exam 67.5/75 · 815 candidates certified · 4 credits</p>
-              <p class="cred__detail mono">Roll no. NPTEL26MA37S990100380</p>
-            </div>
-            <a class="proof" href="docs/nptel-advanced-engineering-mathematics.pdf" target="_blank" rel="noopener">
-              Certificate <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg>
-            </a>
-          </article>
-
-          <article class="cred">
-            <div class="cred__score">
-              <span class="cred__big">75</span><span class="cred__unit">/100</span>
-              <span class="cred__badge mono">Elite + Silver</span>
-            </div>
-            <div class="cred__body">
-              <h3>Introduction to Electrical Engineering</h3>
-              <p class="cred__org">NPTEL · IIT Madras · 12-week course, Jan–Apr 2026</p>
-              <p class="cred__detail mono">Assignments 23.44/25 · Exam 51.06/75 · 4 credits</p>
-              <p class="cred__detail mono">Roll no. NPTEL26EE30S790100005</p>
-            </div>
-            <a class="proof" href="docs/nptel-introduction-to-electrical-engineering.pdf" target="_blank" rel="noopener">
-              Certificate <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg>
-            </a>
-          </article>
-
-          <article class="cred">
-            <div class="cred__score cred__score--icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="6"/><ellipse cx="24" cy="24" rx="20" ry="8" transform="rotate(-25 24 24)"/><circle cx="41" cy="16" r="2.2" class="fill"/></svg>
-            </div>
-            <div class="cred__body">
-              <h3>Bharatiya Antariksh Hackathon 2026</h3>
-              <p class="cred__org">Presented by ISRO · Powered by Hack2skill</p>
-              <p class="cred__detail mono">Participant — idea submission to the national space-innovation challenge</p>
-              <p class="cred__detail mono">Certificate ID 2026H2S06BAH-P38765</p>
-            </div>
-            <a class="proof" href="docs/bharatiya-antariksh-hackathon-2026.pdf" target="_blank" rel="noopener">
-              Certificate <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg>
-            </a>
-          </article>
-
-          <article class="cred">
-            <div class="cred__score cred__score--icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><rect x="9" y="9" width="30" height="30" rx="15"/><rect x="16" y="16" width="16" height="16" rx="8"/><path d="M24 4v6M24 38v6M4 24h6M38 24h6"/></svg>
-            </div>
-            <div class="cred__body">
-              <h3>MRI Department Internship</h3>
-              <p class="cred__org">Sahyadri Diagnostic Centre, Aurangabad · 22 Jun – 21 Jul 2026</p>
-              <p class="cred__detail mono">Signed by Director / Authorised Signatory, DMRD DNB (Radiology)</p>
-            </div>
-            <a class="proof" href="docs/sahyadri-mri-internship-certificate.jpg" target="_blank" rel="noopener">
-              Certificate <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg>
-            </a>
-          </article>
-        </div>
-        <p class="verify muted">NPTEL certificates can be independently verified on <a href="https://nptel.ac.in" target="_blank" rel="noopener">nptel.ac.in</a> using the roll numbers above.</p>
+        <ol class="ledger" id="ledger">
+          <li class="ledger__row" data-preview="assets/cert-math.jpg" data-doc="docs/nptel-advanced-engineering-mathematics.pdf" data-verify="https://nptel.ac.in/noc" data-title="Advanced Engineering Mathematics — NPTEL, IIT Kharagpur">
+            <span class="ledger__i mono">01</span>
+            <div class="ledger__t"><h3>Advanced Engineering Mathematics</h3><p class="mono">NPTEL · IIT Kharagpur · Jan–Apr 2026 · 12 weeks · 4 credits</p></div>
+            <div class="ledger__s"><b><span data-count="91">0</span><small>%</small></b><span class="mono tag tag--acc">Elite + Gold · Top 1%</span></div>
+            <span class="ledger__a"><i></i></span>
+          </li>
+          <li class="ledger__row" data-preview="assets/cert-ee.jpg" data-doc="docs/nptel-introduction-to-electrical-engineering.pdf" data-verify="https://nptel.ac.in/noc" data-title="Introduction to Electrical Engineering — NPTEL, IIT Madras">
+            <span class="ledger__i mono">02</span>
+            <div class="ledger__t"><h3>Introduction to Electrical Engineering</h3><p class="mono">NPTEL · IIT Madras · Jan–Apr 2026 · 12 weeks · 4 credits</p></div>
+            <div class="ledger__s"><b><span data-count="75">0</span><small>%</small></b><span class="mono tag">Elite + Silver</span></div>
+            <span class="ledger__a"><i></i></span>
+          </li>
+          <li class="ledger__row" data-preview="assets/cert-isro.jpg" data-doc="docs/bharatiya-antariksh-hackathon-2026.pdf" data-title="Bharatiya Antariksh Hackathon 2026 — ISRO × Hack2skill">
+            <span class="ledger__i mono">03</span>
+            <div class="ledger__t"><h3>Bharatiya Antariksh Hackathon 2026</h3><p class="mono">Presented by ISRO · Powered by Hack2skill · ID 2026H2S06BAH-P38765</p></div>
+            <div class="ledger__s"><b class="ledger__word">Participant</b><span class="mono tag">Idea submission</span></div>
+            <span class="ledger__a"><i></i></span>
+          </li>
+          <li class="ledger__row" data-preview="docs/sahyadri-mri-internship-certificate.jpg" data-doc="docs/sahyadri-mri-internship-certificate.jpg" data-title="Internship Completion — Sahyadri Diagnostic Centre, MRI Department">
+            <span class="ledger__i mono">04</span>
+            <div class="ledger__t"><h3>MRI Department Internship</h3><p class="mono">Sahyadri Diagnostic Centre, Aurangabad · 22 Jun – 21 Jul 2026</p></div>
+            <div class="ledger__s"><b class="ledger__word">Completed</b><span class="mono tag">Signed · DMRD DNB (Radiology)</span></div>
+            <span class="ledger__a"><i></i></span>
+          </li>
+        </ol>
+        <p class="creds__note mono">NPTEL certificates carry a roll number and QR code that can be verified independently at nptel.ac.in.</p>
       </div>
+      <div class="preview" id="preview" aria-hidden="true"><img id="previewImg" alt=""></div>
     </section>
 
-    <!-- ============ SKILLS ============ -->
-    <section class="section" id="skills">
-      <div class="wrap split">
-        <header class="section__head">
-          <span class="num mono">05</span>
-          <h2>Toolkit</h2>
-        </header>
-        <div class="split__body skills">
-          <div>
-            <h3 class="mono">Biomedical</h3>
-            <p>MRI physics &amp; system components · Imaging workflow · MR safety · Imaging QA &amp; preventive maintenance · Biomedical instrumentation</p>
-          </div>
-          <div>
-            <h3 class="mono">Engineering</h3>
-            <p>Engineering mathematics &amp; modelling · Electrical fundamentals · Arduino &amp; sensor interfacing (I²C) · Embedded C</p>
-          </div>
-          <div>
-            <h3 class="mono">Software &amp; design</h3>
-            <p>MATLAB · Python · JavaScript · React · TypeScript · Tailwind · Git &amp; GitHub · UI / visual design</p>
-          </div>
-          <div>
-            <h3 class="mono">Languages</h3>
-            <p>English (professional) · Hindi &amp; Urdu (native) · Marathi (conversational)</p>
-          </div>
+    <!-- ================= TOOLKIT ================= -->
+    <section class="sec kit" id="toolkit">
+      <div class="wrap sec__grid">
+        <aside class="sec__aside">
+          <span class="idx mono">06</span>
+          <h2 class="sec__label">Toolkit</h2>
+        </aside>
+        <div class="sec__body kit__grid">
+          <div><h3 class="mono">Imaging</h3><p>MRI physics · system components · imaging workflow · MR safety · QA and preventive maintenance</p></div>
+          <div><h3 class="mono">Electronics</h3><p>Arduino · MPU-6050 / I²C · GSM modules · sensor interfacing · embedded C</p></div>
+          <div><h3 class="mono">Analysis</h3><p>Engineering mathematics · modelling · MATLAB · Python</p></div>
+          <div><h3 class="mono">Software</h3><p>JavaScript · React · TypeScript · Tailwind · Vite · Git and GitHub</p></div>
+          <div><h3 class="mono">Design</h3><p>Interface design · typography · motion · design systems</p></div>
+          <div><h3 class="mono">Languages</h3><p>English (professional) · Hindi and Urdu (native) · Marathi (conversational)</p></div>
         </div>
       </div>
     </section>
 
-    <!-- ============ CONTACT ============ -->
-    <section class="contact" id="contact">
+    <!-- ================= CONTACT ================= -->
+    <section class="sec contact" id="contact">
       <div class="wrap">
-        <p class="eyebrow mono">06 — Contact</p>
-        <h2 class="contact__title">Looking for an internship<br>where I can <em>build and learn</em>.</h2>
-        <p class="contact__lede">Medical devices, imaging, embedded systems or R&amp;D — I'd be glad to hear from you.</p>
+        <span class="idx mono">07</span>
+        <h2 class="contact__title"><span class="line"><span class="split" data-split-scroll>Let's build</span></span><span class="line"><span class="split" data-split-scroll>something that</span></span><span class="line"><span class="split split--acc" data-split-scroll>matters.</span></span></h2>
+        <p class="contact__lede">Medical devices, imaging, embedded systems or R&amp;D — looking for an internship where I can build and learn. Based in Manipal, happy to relocate.</p>
+        <div class="contact__actions">
+          <a class="btn btn--solid" href="mailto:abdulhaq7378@gmail.com" data-magnet>Email me</a>
+          <button class="btn" type="button" id="copyMail" data-magnet>Copy address</button>
+        </div>
         <ul class="contact__list">
           <li><span class="mono">Email</span><a href="mailto:abdulhaq7378@gmail.com">abdulhaq7378@gmail.com</a></li>
           <li><span class="mono">Phone</span><a href="tel:+917378456877">+91 73784 56877</a></li>
-          <li><span class="mono">LinkedIn</span><a href="https://www.linkedin.com/in/mohammed-abdul-haq-a0b946321" target="_blank" rel="noopener">mohammed-abdul-haq</a></li>
+          <li><span class="mono">LinkedIn</span><a href="https://www.linkedin.com/in/mohammed-abdul-haq-a0b946321" target="_blank" rel="noopener">in/mohammed-abdul-haq</a></li>
           <li><span class="mono">GitHub</span><a href="https://github.com/abdulhaq7378-hash" target="_blank" rel="noopener">abdulhaq7378-hash</a></li>
         </ul>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="wrap footer__inner mono">
+  <footer class="foot">
+    <div class="wrap foot__inner mono">
       <span>© <span id="year">2026</span> Mohammed Abdul Haq</span>
-      <span>Designed &amp; built by hand · Manipal</span>
-      <a href="#top">Back to top ↑</a>
+      <span>Designed and built by hand in Manipal — no templates, no page builders.</span>
+      <a href="#top" data-cursor="Top">Back to top ↑</a>
     </div>
   </footer>
 
-  <script src="main.js" defer></script>
+  <dialog class="lb" id="lb">
+    <button class="lb__close" id="lbClose" type="button" aria-label="Close">×</button>
+    <img id="lbImg" alt="">
+    <div class="lb__bar">
+      <span id="lbTitle" class="mono"></span>
+      <span class="lb__links"><a id="lbDoc" class="link" href="#" target="_blank" rel="noopener">Original document <i></i></a><a id="lbVerify" class="link" href="#" target="_blank" rel="noopener" hidden>Verify at NPTEL <i></i></a></span>
+    </div>
+  </dialog>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="js/field.js" defer></script>
+  <script src="js/sim.js" defer></script>
+  <script src="js/app.js" defer></script>
 </body>
 </html>
