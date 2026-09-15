@@ -99,8 +99,7 @@
   // prescription handwriting: reveal once in view
   var rxCard = $('#rx');
   if (rxCard && 'IntersectionObserver' in window && !reduce) {
-    rxCard.classList.add('ink-armed');
-    $$('[data-ink]', rxCard).forEach(function (el, i) { el.style.transitionDelay = (.15 + i * .28) + 's'; });
+    $$('[data-ink]', rxCard).forEach(function (el, i) { el.style.animationDelay = (.1 + i * .18) + 's'; });
     new IntersectionObserver(function (es, o) { es.forEach(function (e) { if (e.isIntersecting) { rxCard.classList.add('is-in'); o.disconnect(); } }); }, { threshold: .15 }).observe(rxCard);
   }
 
