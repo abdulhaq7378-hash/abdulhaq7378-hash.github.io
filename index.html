@@ -13,7 +13,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2306080a'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23e9e6df' stroke-width='1.6'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23ff5a3c'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -41,7 +41,7 @@
     </a>
     <nav class="nav__links" aria-label="Sections">
       <a href="#profile">Profile</a>
-      <a href="#imaging">Imaging</a>
+      <a href="#internship">Internship</a>
       <a href="#guardianband">GuardianBand</a>
       <a href="#work">Work</a>
       <a href="#credentials">Credentials</a>
@@ -55,7 +55,7 @@
 
   <main id="main">
 
-    <!-- ================= HERO ================= -->
+    <!-- ================= HERO (unchanged) ================= -->
     <section class="hero" id="top">
       <canvas class="hero__field" id="field" aria-hidden="true"></canvas>
       <div class="hero__fallback" aria-hidden="true"></div>
@@ -99,208 +99,407 @@
         </aside>
         <div class="sec__body">
           <p class="statement" data-words>
-            Medicine is full of instruments that turn physics into decisions. I want to be the engineer who understands both ends of that chain — the coil and the clinician. Last summer I trained inside a 3&nbsp;Tesla MRI department. This year I'm building a wearable that can tell a fall from a stumble. In between, I keep the mathematics sharp and ship interfaces people actually use.
+            Medicine is full of instruments that turn physics into decisions. I want to be the engineer who understands both ends of that chain — the coil and the clinician. I trained inside a 3&nbsp;Tesla MRI department, I'm building a wearable that can tell a fall from a stumble, and in between I keep the mathematics sharp and ship interfaces people actually use.
           </p>
-
-          <ul class="stats" aria-label="Key numbers">
-            <li><span class="stats__n"><b data-count="91">0</b><small>/100</small></span><span class="stats__l mono">NPTEL Adv. Engineering Mathematics · Top 1%</span></li>
-            <li><span class="stats__n"><b data-count="3">0</b><small>T</small></span><span class="stats__l mono">Field strength of the MRI system I trained on</span></li>
-            <li><span class="stats__n"><b data-count="6">0</b><small>-axis</small></span><span class="stats__l mono">IMU at the heart of GuardianBand</span></li>
-            <li><span class="stats__n"><b data-count="2028">0</b></span><span class="stats__l mono">Graduating class · available for internships before</span></li>
-          </ul>
-
-          <div class="profile__row">
-            <div>
-              <h3 class="mono">Interests</h3>
-              <p>Magnetic resonance imaging · Biomedical instrumentation · Medical image processing · Wearable and embedded systems · Aeronautics · Product and interface design</p>
-            </div>
-            <div>
-              <h3 class="mono">Beyond the syllabus</h3>
-              <p>Management committee member, <b>IE Aerospace</b>, MIT Manipal — the student aerospace society. Bharatiya Antariksh Hackathon 2026 participant (ISRO × Hack2skill).</p>
-            </div>
-          </div>
         </div>
+      </div>
+
+      <!-- bento: facts that do not appear on the timeline -->
+      <div class="wrap">
+        <div class="bento">
+          <article class="tile tile--score" data-reveal>
+            <span class="tile__k mono">NPTEL · IIT Kharagpur · Jan–Apr 2026</span>
+            <div class="score">
+              <svg viewBox="0 0 200 200" aria-hidden="true"><circle class="trk" cx="100" cy="100" r="84" fill="none" stroke-width="12"/><circle class="val" cx="100" cy="100" r="84" fill="none" stroke-width="12" pathLength="100" data-ring="91"/></svg>
+              <div class="score__num"><b data-count="91">91</b><small>/ 100</small></div>
+            </div>
+            <h3>Advanced Engineering Mathematics</h3>
+            <dl class="score__parts">
+              <div><dt class="mono">Assignments</dt><dd>23.75 / 25</dd></div>
+              <div><dt class="mono">Proctored exam</dt><dd>67.5 / 75</dd></div>
+              <div><dt class="mono">Standing</dt><dd>Top 1% of 815 certified</dd></div>
+            </dl>
+          </article>
+
+          <article class="tile tile--lang" data-reveal>
+            <span class="tile__k mono">Languages</span>
+            <b class="tile__big">4</b>
+            <ul class="langs">
+              <li><span>English</span><em class="mono">Professional</em></li>
+              <li><span>Hindi</span><em class="mono">Native</em></li>
+              <li><span>Urdu</span><em class="mono">Native</em></li>
+              <li><span>Marathi</span><em class="mono">Conversational</em></li>
+            </ul>
+          </article>
+
+          <article class="tile tile--place" data-reveal>
+            <span class="tile__k mono">Based in</span>
+            <i class="tile__pulse" aria-hidden="true"></i>
+            <h3 class="tile__place">Manipal, Karnataka</h3>
+            <b class="tile__time mono" id="placeTime">--:--</b>
+            <p class="tile__meta mono">IST · 13.35° N, 74.79° E<br>Happy to relocate</p>
+          </article>
+
+          <article class="tile tile--space" data-reveal>
+            <span class="tile__k mono">ISRO × Hack2skill</span>
+            <svg class="orbit" viewBox="0 0 220 180" aria-hidden="true">
+              <ellipse cx="110" cy="92" rx="92" ry="34" fill="none" stroke="rgba(233,230,223,.18)" transform="rotate(-18 110 92)"/>
+              <ellipse cx="110" cy="92" rx="62" ry="22" fill="none" stroke="rgba(233,230,223,.1)" transform="rotate(-18 110 92)"/>
+              <circle cx="110" cy="92" r="20" fill="#10141a" stroke="#e9e6df" stroke-width="1.2"/>
+              <path d="M92 86c10 4 26 4 36 0" stroke="rgba(233,230,223,.35)" fill="none"/>
+              <circle r="5" fill="#ff5a3c"><animateMotion dur="7s" repeatCount="indefinite" path="M22.5 120.4 A92 34 -18 1 1 197.5 63.6 A92 34 -18 1 1 22.5 120.4"/></circle>
+            </svg>
+            <h3>Bharatiya Antariksh Hackathon 2026</h3>
+            <p class="tile__meta mono">Idea submission · national space-innovation challenge</p>
+          </article>
+
+          <article class="tile tile--interests" data-reveal>
+            <span class="tile__k mono">Drawn to</span>
+            <ul class="chips">
+              <li>Magnetic resonance imaging</li><li>Biomedical instrumentation</li><li>Medical image processing</li><li>Wearable sensing</li><li>AI in diagnostics</li><li>Aeronautics</li><li>Interface design</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <!-- degree timeline: dated milestones only -->
+      <div class="wrap tl" id="timeline">
+        <header class="tl__head">
+          <div>
+            <span class="idx mono">Timeline</span>
+            <h3>Four years. Three in.</h3>
+          </div>
+          <p class="mono tl__range">Jul 2024 → 2028</p>
+        </header>
+
+        <div class="tl__rail" aria-hidden="true">
+          <div class="tl__line"></div>
+          <div class="tl__fill" style="--to:55.2%"></div>
+          <span class="tl__dot" style="--x:.4%"></span>
+          <span class="tl__dot" style="--x:44.8%"></span>
+          <span class="tl__span" style="--a:49.4%;--b:51.4%"><em class="mono">MRI internship</em></span>
+          <span class="tl__now" style="--x:55.2%"><em class="mono">You are here</em></span>
+          <span class="tl__tick mono first" style="--x:0%">Jul 2024</span>
+          <span class="tl__tick mono" style="--x:25%">Jul 2025</span>
+          <span class="tl__tick mono" style="--x:50%">Jul 2026</span>
+          <span class="tl__tick mono" style="--x:75%">Jul 2027</span>
+          <span class="tl__tick mono last" style="--x:100%">2028</span>
+        </div>
+
+        <ol class="tl__years">
+          <li class="yr done">
+            <h4>Year 1 <span class="mono">2024–25</span></h4>
+            <ul class="ev">
+              <li><time class="mono">Jul 2024</time><b>Joined MIT Manipal</b><span>B.Tech Biomedical Engineering</span></li>
+              <li><time class="mono">First year</time><b>IE Aerospace</b><span>Joined as working committee</span></li>
+            </ul>
+          </li>
+          <li class="yr done">
+            <h4>Year 2 <span class="mono">2025–26</span></h4>
+            <ul class="ev">
+              <li><time class="mono">Second year</time><b>Promoted to management committee</b><span>IE Aerospace</span></li>
+              <li><time class="mono">Apr 2026</time><b>NPTEL Top 1% certificate</b><span>Awarded</span></li>
+              <li><time class="mono">Apr 2026</time><b>Started GuardianBand</b><span>Wearable fall detection</span></li>
+              <li><time class="mono">Apr 2026</time><b>Started a hospital management system</b><span><em class="soon mono">Coming soon</em></span></li>
+              <li class="hi"><time class="mono">22 Jun – 21 Jul 2026</time><b>MRI internship</b><span>Sahyadri Diagnostic Centre · one month</span></li>
+            </ul>
+          </li>
+          <li class="yr now">
+            <h4>Year 3 <span class="mono">2026–27</span> <em class="mono">Now</em></h4>
+            <ul class="ev">
+              <li class="hi"><time class="mono">Sep 2026</time><b>Building Feréa Coffee House</b><span>Café website</span></li>
+            </ul>
+          </li>
+          <li class="yr future">
+            <h4>Year 4 <span class="mono">2027–28</span></h4>
+            <ul class="ev">
+              <li><time class="mono">2028</time><b>Graduation</b><span>B.Tech Biomedical Engineering</span></li>
+            </ul>
+          </li>
+        </ol>
       </div>
     </section>
 
-    <!-- ================= IMAGING (pinned scanner) ================= -->
-    <section class="sec scan" id="imaging">
-      <div class="scan__stage" id="scanStage">
-        <div class="wrap scan__grid">
-          <div class="scan__text">
-            <span class="idx mono">02 <em id="scanPhase">/ 01</em></span>
+    <!-- ================= INTERNSHIP ================= -->
+    <section class="sec intern" id="internship">
+      <div class="intern__stage" id="internStage">
+        <div class="wrap intern__grid">
+          <div class="intern__left">
+            <span class="idx mono">02 <em>/ Internship</em></span>
             <h2 class="sec__title">Inside a<br>3&nbsp;Tesla scanner.</h2>
-            <p class="scan__role mono">MRI Department intern · Sahyadri Diagnostic Centre, Aurangabad · 22 Jun – 21 Jul 2026</p>
-            <p class="scan__p">
-              A month of practical training in the MRI department of a multi-modality diagnostic centre running a
-              Siemens 3&nbsp;T system alongside 384-slice cardiac CT, DR/CR, ultrasound and CBCT.
-            </p>
-            <ol class="scan__steps" id="scanSteps">
-              <li><div><b>Magnet &amp; system components</b><span>Superconducting magnet, gradient chain, RF coils — identified in situ on an installed high-field scanner.</span></div></li>
-              <li><div><b>Imaging workflow</b><span>Patient screening and handling, protocol selection, acquisition and archival.</span></div></li>
-              <li><div><b>Safety &amp; QA</b><span>MR safety zoning, ferromagnetic screening, quality-assurance routines and preventive maintenance.</span></div></li>
-              <li><div><b>Operation</b><span>Operation of advanced diagnostic imaging equipment under clinical supervision.</span></div></li>
-            </ol>
-            <a class="link" href="docs/sahyadri-mri-internship-certificate.jpg" target="_blank" rel="noopener" data-cursor="Open">
-              <span class="mono">Proof</span> Internship completion certificate <i></i>
-            </a>
+            <p class="intern__role mono">MRI Department · Sahyadri Diagnostic Centre, Aurangabad<br>22 Jun – 21 Jul 2026</p>
+
+            <div class="deck" id="deck">
+              <article class="note">
+                <header><span class="mono note__k">Hardware</span><span class="mono note__n">1 / 4</span></header>
+                <h3>Magnet &amp; system components</h3>
+                <ul class="note__body">
+                  <li>Superconducting magnet, shim system and cooling</li>
+                  <li>Gradient coils that encode position</li>
+                  <li>RF coils that transmit and receive</li>
+                  <li>Identified in situ on an installed Siemens 3&nbsp;T system</li>
+                </ul>
+              </article>
+              <article class="note">
+                <header><span class="mono note__k">Workflow</span><span class="mono note__n">2 / 4</span></header>
+                <h3>From patient to image</h3>
+                <ul class="note__body">
+                  <li>Patient screening and handling</li>
+                  <li>Positioning on the table</li>
+                  <li>Protocol selection and acquisition</li>
+                  <li>Archival and transfer of studies</li>
+                </ul>
+              </article>
+              <article class="note">
+                <header><span class="mono note__k">Safety &amp; QA</span><span class="mono note__n">3 / 4</span></header>
+                <h3>Keeping the room safe</h3>
+                <ul class="note__body">
+                  <li>MR safety zoning and ferromagnetic screening</li>
+                  <li>Quality-assurance routines</li>
+                  <li>Preventive maintenance schedules</li>
+                </ul>
+              </article>
+              <article class="note">
+                <header><span class="mono note__k">Operation</span><span class="mono note__n">4 / 4</span></header>
+                <h3>At the console</h3>
+                <ul class="note__body">
+                  <li>Operation of advanced diagnostic imaging equipment</li>
+                  <li>Under clinical supervision</li>
+                  <li>In a centre also running CT, DR/CR, ultrasound and CBCT</li>
+                </ul>
+              </article>
+            </div>
+            <div class="deck__prog" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+            <a class="link" href="docs/sahyadri-mri-internship-certificate.jpg" target="_blank" rel="noopener" data-cursor="Open"><span class="mono">Proof</span> Internship completion certificate <i></i></a>
           </div>
 
-          <figure class="scan__fig" aria-label="Cross-section of an MRI scanner, drawn as you scroll">
-            <svg class="scan__svg" id="scanSvg" viewBox="0 0 820 620" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <figure class="mri" id="mri" data-phase="0" aria-label="Front view of an MRI scanner showing the parts, the patient workflow, safety zones and the console">
+            <svg viewBox="0 0 820 640" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <defs>
-                <radialGradient id="boreGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0" stop-color="#ff5a3c" stop-opacity=".22"/>
-                  <stop offset="1" stop-color="#ff5a3c" stop-opacity="0"/>
-                </radialGradient>
+                <linearGradient id="mHousing" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#161c21"/><stop offset="1" stop-color="#0a0d10"/></linearGradient>
+                <radialGradient id="mBore" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ff5a3c" stop-opacity=".28"/><stop offset=".7" stop-color="#ff5a3c" stop-opacity=".06"/><stop offset="1" stop-color="#ff5a3c" stop-opacity="0"/></radialGradient>
+                <radialGradient id="mHalo" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#e9e6df" stop-opacity=".06"/><stop offset="1" stop-color="#e9e6df" stop-opacity="0"/></radialGradient>
               </defs>
-              <!-- grid -->
-              <g class="s-grid" stroke="rgba(233,230,223,.06)" stroke-width="1">
-                <path d="M410 0V620M0 300H820"/>
-                <circle cx="410" cy="300" r="280"/>
+
+              <!-- safety: 5-gauss line + zones (phase 2) -->
+              <g data-show="2">
+                <ellipse class="gauss" cx="410" cy="310" rx="398" ry="304" stroke="#ff5a3c" stroke-width="1.4" stroke-dasharray="8 8"/>
+                <path d="M40 40H240M40 40V120" stroke="rgba(233,230,223,.3)"/>
+                <path d="M780 600H580M780 600V520" stroke="rgba(233,230,223,.3)"/>
               </g>
-              <!-- housing -->
-              <g class="s-draw" data-ph="0">
-                <rect x="110" y="50" width="600" height="520" rx="120" stroke="var(--bone)" stroke-width="1.6"/>
-                <path d="M410 50V22M396 22h28" stroke="var(--bone)" stroke-width="1.6"/>
+
+              <circle cx="410" cy="310" r="300" fill="url(#mHalo)"/>
+
+              <!-- hardware (always, drawn in phase 0) -->
+              <rect class="draw" pathLength="1" x="110" y="60" width="600" height="500" rx="130" fill="url(#mHousing)" stroke="#e9e6df" stroke-width="1.5"/>
+              <path class="draw" pathLength="1" d="M410 60V30M394 30H426" stroke="#e9e6df" stroke-width="1.5"/>
+              <circle class="draw" pathLength="1" cx="410" cy="310" r="238" stroke="#e9e6df" stroke-width="1.2"/>
+              <circle class="draw" pathLength="1" cx="410" cy="310" r="226" stroke="rgba(233,230,223,.55)" stroke-width="1" stroke-dasharray="3 6"/>
+              <circle class="draw" pathLength="1" cx="410" cy="310" r="196" stroke="#e9e6df" stroke-width="1.1"/>
+              <circle class="draw" pathLength="1" cx="410" cy="310" r="184" stroke="#e9e6df" stroke-width="1.1"/>
+              <g class="grads">
+                <path class="grad gx" d="M410 116a194 194 0 0 1 168 97" stroke="#ff5a3c" stroke-width="3"/>
+                <path class="grad gy" d="M578 407a194 194 0 0 1-336 0" stroke="#e8b44f" stroke-width="3"/>
+                <path class="grad gz" d="M242 213a194 194 0 0 1 168-97" stroke="#8fd9a8" stroke-width="3"/>
               </g>
-              <!-- bore -->
-              <g class="s-draw" data-ph="1">
-                <circle cx="410" cy="300" r="132" fill="url(#boreGlow)" stroke="var(--bone)" stroke-width="1.6"/>
+              <circle class="draw" pathLength="1" cx="410" cy="310" r="160" stroke="#e9e6df" stroke-width="1.1"/>
+              <g class="rungs" stroke="rgba(233,230,223,.55)" stroke-width="1.6">
+                <path d="M410 150v14"/><path d="M471 162l-5 13"/><path d="M523 197l-10 10"/><path d="M558 249l-13 5"/><path d="M570 310h-14"/><path d="M558 371l-13-5"/><path d="M523 423l-10-10"/><path d="M471 458l-5-13"/><path d="M410 470v-14"/><path d="M349 458l5-13"/><path d="M297 423l10-10"/><path d="M262 371l13-5"/><path d="M250 310h14"/><path d="M262 249l13 5"/><path d="M297 197l10 10"/><path d="M349 162l5 13"/>
               </g>
-              <!-- magnet -->
-              <g class="s-draw" data-ph="2">
-                <circle cx="410" cy="300" r="238" stroke="var(--bone)" stroke-width="1.2"/>
-                <circle cx="410" cy="300" r="226" stroke="var(--bone)" stroke-width="1.2" stroke-dasharray="6 7"/>
+              <circle class="draw" pathLength="1" cx="410" cy="310" r="134" fill="url(#mBore)" stroke="#e9e6df" stroke-width="1.5"/>
+
+              <!-- B0 into the page (phase 0) -->
+              <g data-show="0">
+                <circle class="ripple" cx="410" cy="310" r="40" stroke="rgba(255,90,60,.5)"/>
+                <circle class="ripple r2" cx="410" cy="310" r="40" stroke="rgba(255,90,60,.5)"/>
+                <circle cx="410" cy="310" r="14" stroke="#e9e6df" stroke-width="1.4"/>
+                <circle cx="410" cy="310" r="3.5" fill="#e9e6df"/>
+                <text x="432" y="300" fill="#e9e6df" font-family="JetBrains Mono" font-size="13">B₀</text>
               </g>
-              <!-- gradient coils -->
-              <g class="s-draw" data-ph="3">
-                <circle cx="410" cy="300" r="196" stroke="var(--bone)" stroke-width="1.2"/>
-                <circle cx="410" cy="300" r="184" stroke="var(--bone)" stroke-width="1.2"/>
-                <path d="M410 104a196 196 0 0 1 0 392" stroke="var(--accent)" stroke-width="2" class="s-hi"/>
+
+              <!-- table (always) -->
+              <path d="M250 382H810" stroke="#e9e6df" stroke-width="3"/>
+              <path d="M250 394H810" stroke="rgba(233,230,223,.5)" stroke-width="1.2"/>
+              <path d="M720 394V600M780 394V600M708 600H792" stroke="rgba(233,230,223,.5)" stroke-width="1.2"/>
+
+              <!-- patient (phase 1) -->
+              <g class="patient">
+                <ellipse cx="410" cy="345" rx="92" ry="36" fill="rgba(233,230,223,.1)" stroke="#e9e6df" stroke-width="1.3"/>
+                <ellipse cx="410" cy="338" rx="38" ry="14" fill="rgba(233,230,223,.08)" stroke="rgba(233,230,223,.4)"/>
+                <path d="M410 250V290" stroke="#ff5a3c" stroke-dasharray="3 5"/>
               </g>
-              <!-- rf coil -->
-              <g class="s-draw" data-ph="4">
-                <circle cx="410" cy="300" r="158" stroke="var(--bone)" stroke-width="1.2"/>
-                <path d="M264 258c26-10 44-16 78-16s52 6 78 16M264 342c26 10 44 16 78 16s52-6 78-16" stroke="var(--bone)" stroke-width="1.2"/>
+
+              <!-- QA phantom (phase 2) -->
+              <g data-show="2">
+                <circle cx="410" cy="330" r="46" fill="rgba(143,217,168,.08)" stroke="#8fd9a8" stroke-width="1.3"/>
+                <path d="M380 330H440M410 300V360M388 308L432 352M432 308L388 352" stroke="rgba(143,217,168,.45)"/>
               </g>
-              <!-- table -->
-              <g class="s-draw" data-ph="5">
-                <path d="M292 332h500" stroke="var(--bone)" stroke-width="3"/>
-                <path d="M292 344h500" stroke="var(--bone)" stroke-width="1.2"/>
-                <path d="M700 344v210M760 344v210M690 554h80" stroke="var(--bone)" stroke-width="1.2"/>
-                <path d="M410 268v64" stroke="var(--accent)" stroke-width="1.2" stroke-dasharray="3 5"/>
-              </g>
+
               <!-- leaders -->
-              <g class="s-lead" stroke="rgba(233,230,223,.45)" stroke-width="1">
-                <path data-ph="0" d="M170 120L120 70H20"/>
-                <path data-ph="2" d="M578 132L620 96H800"/>
-                <path data-ph="3" d="M570 188L640 176H800"/>
-                <path data-ph="4" d="M558 246L660 256H800"/>
-                <path data-ph="5" d="M640 344L690 404H800"/>
+              <g stroke="rgba(233,230,223,.45)" stroke-width="1">
+                <path data-show="0" d="M580 136L630 96H812"/>
+                <path data-show="0 3" d="M578 213L640 182H812"/>
+                <path data-show="0 3" d="M560 250L660 262H812"/>
+                <path data-show="0" d="M340 280L262 206H8"/>
+                <path data-show="1" d="M700 382L660 452H812"/>
+                <path data-show="1" d="M320 352L256 470H8"/>
+                <path data-show="2" d="M456 330L640 182H812"/>
+                <path data-show="2" d="M110 190L60 206H8"/>
               </g>
             </svg>
-            <ul class="scan__labels mono" id="scanLabels">
-              <li data-ph="0" style="--x:2.4%;--y:11.3%"><b>Housing &amp; quench vent</b><span>cryostat shell · helium vent</span></li>
-              <li data-ph="2" style="--x:75.6%;--y:15.5%"><b>Superconducting magnet</b><span>3.0 T · liquid-helium cooled</span></li>
-              <li data-ph="3" style="--x:78%;--y:28.4%"><b>Gradient coils</b><span>Gx · Gy · Gz — spatial encoding</span></li>
-              <li data-ph="4" style="--x:80.5%;--y:41.3%"><b>RF body coil</b><span>transmit · receive</span></li>
-              <li data-ph="5" style="--x:84.1%;--y:65.2%"><b>Patient table</b><span>isocentre alignment</span></li>
+
+            <ul class="mri__labels mono">
+              <li data-show="0" style="--x:77%;--y:15%"><b>Superconducting magnet</b><span>3.0 T · liquid-helium cooled</span></li>
+              <li data-show="0" style="--x:78.4%;--y:28.4%"><b>Gradient coils</b><span>Gx · Gy · Gz — spatial encoding</span></li>
+              <li data-show="0" style="--x:80.6%;--y:40.9%"><b>RF body coil</b><span>transmit · receive</span></li>
+              <li data-show="0" style="--x:1%;--y:32.2%"><b>Bore · B₀</b><span>main field runs into the page</span></li>
+              <li data-show="1" style="--x:80.6%;--y:70.6%"><b>Patient table</b><span>moves the patient into the bore</span></li>
+              <li data-show="1" style="--x:1%;--y:73.4%"><b>Isocentre</b><span>anatomy aligned to the field centre</span></li>
+              <li data-show="2" style="--x:78.4%;--y:28.4%"><b>QA phantom</b><span>routine image-quality checks</span></li>
+              <li data-show="2" style="--x:1%;--y:32.2%"><b>Ferromagnetic screening</b><span>nothing metal crosses the line</span></li>
+              <li data-show="2" style="--x:5.5%;--y:4%"><b class="acc">5-gauss line</b><span>Zone IV · magnet room</span></li>
+              <li data-show="3" style="--x:78.4%;--y:28.4%"><b>Gradients switching</b><span>the knocking you hear</span></li>
+              <li data-show="3" style="--x:80.6%;--y:40.9%"><b>RF pulses</b><span>excite, then listen</span></li>
             </ul>
-            <figcaption class="mono">Fig. 02 — Front elevation, simplified. Drawn from what I learned on site.</figcaption>
+
+            <ol class="wfchips mono" data-show="1" aria-hidden="true"><li>Screen</li><li>Position</li><li>Protocol</li><li>Acquire</li><li>Archive</li></ol>
+
+            <div class="console" data-show="3" aria-hidden="true">
+              <div class="console__head mono"><span>Console</span><span class="console__live">Acquiring</span></div>
+              <div class="console__k"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="console__bar"><i></i></div>
+              <p class="mono">k-space filling · illustrative</p>
+            </div>
+
+            <figcaption class="mono">Fig. 02 — Front view, simplified. Drawn from what I learned on site.</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <!-- ================= GUARDIANBAND (horizontal) ================= -->
-    <section class="sec hz" id="guardianband">
-      <div class="hz__pin" id="hzPin">
-        <div class="hz__track" id="hzTrack">
+    <!-- ================= GUARDIANBAND ================= -->
+    <section class="sec gb" id="guardianband">
 
-          <article class="hz__p hz__p--intro">
+      <!-- part 1: exploded assembly -->
+      <div class="gbx" id="gbx">
+        <div class="wrap gbx__grid">
+          <div class="gbx__text">
             <span class="idx mono">03 <em>/ Project</em></span>
-            <p class="pill pill--live mono">In development · Sep 2026</p>
+            <p class="pill pill--live mono">In development · started Apr 2026</p>
             <h2 class="hz__title">Guardian<br>Band<span class="dot">.</span></h2>
             <p class="hz__sub">A wearable that calls for help when the wearer can't.</p>
-            <p class="hz__p-text">
-              People living alone can lie undiscovered for hours after a fall or a faint. GuardianBand watches
-              motion and posture, decides when an event looks like a genuine emergency, and texts a caregiver —
-              while giving the wearer a few seconds to cancel a false alarm.
-            </p>
-            <div class="hz__links">
-              <a class="link" href="docs/guardianband-concept-report.pdf" target="_blank" rel="noopener" data-cursor="Open"><span class="mono">Doc</span> Concept notes <i></i></a>
-              <span class="hz__hint mono">Scroll to explore →</span>
-            </div>
-          </article>
-
-          <article class="hz__p">
-            <span class="idx mono">Hardware</span>
-            <h3 class="hz__h">Six parts, one job.</h3>
-            <ul class="parts">
-              <li><svg viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="28" rx="3"/><path d="M12 10V6M18 10V6M24 10V6M30 10V6M36 10V6M12 42v-4M18 42v-4M24 42v-4M30 42v-4M36 42v-4"/><rect x="16" y="18" width="16" height="12" rx="1"/></svg><b>Arduino UNO</b><span>Controller — samples, decides, drives outputs</span></li>
-                <li><svg viewBox="0 0 48 48"><rect x="10" y="10" width="28" height="28" rx="3"/><circle cx="24" cy="24" r="7"/><path d="M24 17v14M17 24h14"/></svg><b>MPU-6050</b><span>6-axis IMU — accelerometer + gyroscope over I²C</span></li>
-              <li><svg viewBox="0 0 48 48"><path d="M8 34c6-14 26-14 32 0"/><path d="M14 30c4-8 16-8 20 0"/><circle cx="24" cy="34" r="2.5"/><path d="M24 8v8"/></svg><b>SIM900A GSM</b><span>Sends the SMS alert to predefined contacts</span></li>
-              <li><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="12"/><circle cx="24" cy="24" r="4"/><path d="M40 16c3 5 3 11 0 16M8 16c-3 5-3 11 0 16"/></svg><b>Buzzer</b><span>Audible warning before any alert is sent</span></li>
-              <li><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="14"/><circle cx="24" cy="24" r="6"/></svg><b>Cancel button</b><span>Wearer dismisses false alarms in the warning window</span></li>
-              <li><svg viewBox="0 0 48 48"><circle cx="12" cy="24" r="4"/><circle cx="24" cy="24" r="4"/><circle cx="36" cy="24" r="4"/></svg><b>Status LEDs</b><span>Armed · warning · alert sent</span></li>
-            </ul>
-          </article>
-
-          <article class="hz__p hz__p--sim">
-            <div class="sim">
-              <div class="sim__head mono">
-                <span>CH1 · |a| · g</span>
-                <span id="simState" class="sim__state">Monitoring</span>
-              </div>
-              <canvas id="sim" width="900" height="380"></canvas>
-              <div class="sim__foot mono">
-                <span>Fig. 03 — Simulated IMU magnitude through one fall event</span>
-                <span id="simClock">t = 0.00 s</span>
-              </div>
-            </div>
-            <div class="sim__side">
-              <span class="idx mono">Detection</span>
-              <h3 class="hz__h">Not one threshold — four conditions.</h3>
-              <p>Normal life is full of things that look like falls: sitting down hard, jumping, dropping the band. So the logic only escalates when several signals agree.</p>
-              <dl class="cond">
-                <div><dt class="mono">01</dt><dd>Free-fall dip below <b>0.4 g</b>, then an impact spike above <b>2.5 g</b></dd></div>
-                <div><dt class="mono">02</dt><dd>Significant change in body orientation from the gyroscope</dd></div>
-                <div><dt class="mono">03</dt><dd>Stillness — no recovery movement in the following seconds</dd></div>
-                <div><dt class="mono">04</dt><dd>Warning window passes with no cancel press</dd></div>
-              </dl>
-            </div>
-          </article>
-
-          <article class="hz__p">
-            <span class="idx mono">Pipeline</span>
-            <h3 class="hz__h">From sample to SMS.</h3>
-            <ol class="flow">
-              <li><span class="mono">01</span><div><b>Sample</b>Read acceleration and angular rate continuously from the IMU.</div></li>
-              <li><span class="mono">02</span><div><b>Impact</b>Flag a free-fall dip followed by a sharp acceleration spike.</div></li>
-              <li><span class="mono">03</span><div><b>Orientation</b>Confirm a large change in body angle.</div></li>
-              <li><span class="mono">04</span><div><b>Inactivity</b>Watch for stillness and absence of recovery movement.</div></li>
-              <li><span class="mono">05</span><div><b>Warn</b>Sound the buzzer. The wearer can press cancel.</div></li>
-              <li class="flow__end"><span class="mono">06</span><div><b>Alert</b>No cancel — SMS goes out to predefined contacts.</div></li>
+            <ol class="bom" id="bom">
+              <li><span class="mono">01</span><div><b>Top cover</b> status LEDs · cancel button</div></li>
+              <li><span class="mono">02</span><div><b>Buzzer</b> audible warning</div></li>
+              <li><span class="mono">03</span><div><b>MPU-6050</b> 6-axis IMU over I²C</div></li>
+              <li><span class="mono">04</span><div><b>SIM900A</b> GSM module · SMS</div></li>
+              <li><span class="mono">05</span><div><b>Arduino UNO</b> the controller</div></li>
+              <li><span class="mono">06</span><div><b>Base shell</b> and strap</div></li>
             </ol>
-          </article>
-
-          <article class="hz__p hz__p--status">
-            <span class="idx mono">Status</span>
-            <h3 class="hz__h">Where it stands.</h3>
-            <p>The concept, component selection and detection logic are documented. The hardware build begins this semester under faculty guidance — this page will grow with photos, code and test data as it does.</p>
-            <h4 class="mono">Planned after v1</h4>
-            <ul class="next">
-              <li>GPS location in the alert</li>
-              <li>Pulse sensing to improve faint detection</li>
-              <li>Companion mobile app</li>
-              <li>Cloud-side monitoring</li>
-              <li>Learned fall classification</li>
-            </ul>
-            <p class="hz__honest mono">Fig. 03 is a simulation of the logic, not recorded data.</p>
-          </article>
-
+            <a class="link" href="docs/guardianband-concept-report.pdf" target="_blank" rel="noopener" data-cursor="Open"><span class="mono">Doc</span> Concept notes <i></i></a>
+          </div>
+          <figure class="gbx__fig">
+            <svg id="gbxSvg" viewBox="0 0 720 660" role="img" aria-label="Exploded view of the GuardianBand wearable with labelled parts"></svg>
+            <figcaption class="mono">Concept assembly. The first prototype is being built on a breadboard.</figcaption>
+          </figure>
         </div>
+      </div>
+
+      <!-- part 2: sideways story -->
+      <div class="hz" id="gbStory">
+        <div class="hz__pin" id="hzPin">
+          <div class="hz__track" id="hzTrack">
+
+            <article class="hz__p hz__p--why">
+              <span class="idx mono">Why it matters</span>
+              <h3 class="hz__h hz__h--big">Help that arrives late turns a fall into an emergency.</h3>
+              <p>People living alone may not get help after a fall, a faint or a medical emergency. GuardianBand is meant for the moments when nobody is watching.</p>
+              <ul class="who">
+                <li><b>Elderly people</b> living alone</li>
+                <li><b>Balance disorders</b> and frequent falls</li>
+                <li><b>Stroke-risk</b> patients</li>
+                <li><b>Home healthcare</b> monitoring</li>
+              </ul>
+              <span class="hz__hint mono">Keep scrolling →</span>
+            </article>
+
+            <article class="hz__p hz__p--moves">
+              <span class="idx mono">Movement</span>
+              <h3 class="hz__h">It has to know a stumble from a fall.</h3>
+              <div class="moves">
+                <div>
+                  <h4 class="mono moves__ok">Normal · ignore</h4>
+                  <ul><li>Walking</li><li>Sitting and standing</li><li>Lying down on purpose</li><li>Hand and arm movement</li><li>Jumping, or dropping the band</li></ul>
+                </div>
+                <div>
+                  <h4 class="mono moves__bad">Abnormal · act</h4>
+                  <ul><li>Sudden hard falls</li><li>Slipping</li><li>Fainting</li><li>Slow collapse</li><li>Long stillness after a posture change</li></ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="hz__p hz__p--sim">
+              <div class="sim">
+                <div class="sim__head mono">
+                  <span>CH1 · |a| · g</span>
+                  <span id="simState" class="sim__state">Monitoring</span>
+                </div>
+                <canvas id="sim" width="900" height="380"></canvas>
+                <div class="sim__foot mono">
+                  <span>Fig. 03 — Simulated IMU magnitude through one fall event</span>
+                  <span id="simClock">t = 0.00 s</span>
+                </div>
+              </div>
+              <div class="sim__side">
+                <span class="idx mono">Detection</span>
+                <h3 class="hz__h">Not one threshold. Four conditions.</h3>
+                <dl class="cond">
+                  <div><dt class="mono">01</dt><dd>Free-fall dip below <b>0.4 g</b>, then an impact spike above <b>2.5 g</b></dd></div>
+                  <div><dt class="mono">02</dt><dd>Significant change in body orientation from the gyroscope</dd></div>
+                  <div><dt class="mono">03</dt><dd>Stillness, with no recovery movement afterwards</dd></div>
+                  <div><dt class="mono">04</dt><dd>The warning passes without a cancel press</dd></div>
+                </dl>
+                <p class="hz__honest mono">Fig. 03 simulates the logic. It is not recorded data.</p>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- part 3: live device states -->
+      <div class="gbs" id="gbs" data-state="0">
+        <div class="wrap gbs__grid">
+          <figure class="gbs__fig" aria-hidden="true">
+            <div class="band">
+              <div class="band__strap"></div>
+              <div class="band__case">
+                <div class="band__waves"><i></i><i></i><i></i></div>
+                <div class="band__led"></div>
+                <span class="band__word mono" id="bandWord">Armed</span>
+                <div class="band__grille"><i></i><i></i><i></i><i></i><i></i></div>
+              </div>
+              <div class="band__btn"></div>
+              <div class="band__signal"><i></i><i></i><i></i></div>
+              <div class="sms"><small class="mono">SMS · GuardianBand</small>Possible fall detected. No response from the wearer. Please check on them now.</div>
+            </div>
+          </figure>
+          <div class="gbs__text">
+            <span class="idx mono">How it decides</span>
+            <h3 class="gbs__title">Four states, one decision.</h3>
+            <ol class="states" id="states">
+              <li class="on"><span class="mono">State 1</span><b>Armed</b><p>Quietly sampling motion from the IMU. Green light.</p></li>
+              <li><span class="mono">State 2</span><b>Checking</b><p>Something looked like a fall. It watches for recovery movement before doing anything.</p></li>
+              <li><span class="mono">State 3</span><b>Warning</b><p>The buzzer sounds. The wearer has a few seconds to press cancel.</p></li>
+              <li><span class="mono">State 4</span><b>Alert sent</b><p>No cancel. The GSM module texts the predefined contacts.</p></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap gbnext">
+        <p><span class="pill pill--live mono">Status</span> Concept and detection logic are documented. The hardware build starts this semester under faculty guidance.</p>
+        <ul class="chips chips--sm" aria-label="Planned after version one"><li>GPS location in the alert</li><li>Pulse sensing</li><li>Companion app</li><li>Cloud monitoring</li><li>Learned fall classification</li></ul>
       </div>
     </section>
 
@@ -310,41 +509,69 @@
         <header class="sec__head">
           <span class="idx mono">04</span>
           <h2 class="sec__title">Selected work</h2>
-          <p class="sec__note">Things I designed and built end to end.</p>
+          <p class="sec__note">Designed and built end to end.</p>
         </header>
 
-        <article class="work__item" data-reveal>
-          <a class="work__media" href="https://abdulhaq7378-hash.github.io/momentum/" target="_blank" rel="noopener" data-cursor="Open app">
-            <img src="assets/momentum.jpg" alt="Momentum — planning dashboard with progress ring, schedule and tasks" loading="lazy" width="1440" height="900">
+        <article class="proj" data-reveal>
+          <a class="stage" href="https://abdulhaq7378-hash.github.io/momentum/" target="_blank" rel="noopener" data-cursor="Open app" data-tilt>
+            <div class="stage__rig">
+              <div class="laptop">
+                <div class="laptop__screen"><img src="assets/momentum.jpg" alt="Momentum dashboard on a laptop" loading="lazy" width="1440" height="900"></div>
+                <div class="laptop__base"></div>
+              </div>
+              <div class="phone"><img src="assets/momentum-phone.jpg" alt="Momentum on a phone" loading="lazy" width="390" height="844"></div>
+            </div>
           </a>
-          <div class="work__text">
-            <span class="mono work__k">01 · Web app · Live</span>
+          <div class="proj__text">
+            <span class="mono proj__k">Web app · Live</span>
             <h3>Momentum</h3>
-            <p>A personal planning system: scheduler, habits, focus timer, goals, calendar, finances and a fitness module with an offline calorie estimator. Every chart is hand-built SVG. Data never leaves the user's device.</p>
-            <p class="mono work__stack">HTML · CSS · JavaScript · GitHub Pages</p>
-            <div class="work__links">
+            <p>A personal planning system: scheduler, habits, focus timer, goals, calendar, finances and a fitness module with an offline calorie estimator. Every chart is hand-built SVG, and data never leaves the user's device.</p>
+            <p class="mono proj__stack">HTML · CSS · JavaScript · GitHub Pages</p>
+            <div class="proj__links">
               <a class="link" href="https://abdulhaq7378-hash.github.io/momentum/" target="_blank" rel="noopener">Open app <i></i></a>
               <a class="link" href="https://github.com/abdulhaq7378-hash/momentum" target="_blank" rel="noopener">Source <i></i></a>
             </div>
           </div>
         </article>
 
-        <article class="work__item work__item--flip" data-reveal>
-          <div class="work__media work__media--ferea" data-cursor="Soon">
-            <div class="ferea">
-              <span class="mono">Feréa Coffee House</span>
-              <b>Feréa</b>
-              <em>Specialty coffee. Thoughtfully made.</em>
-              <span class="mono">Manipal · in progress</span>
+        <div class="proj-row">
+          <article class="mini" data-reveal>
+            <div class="mini__stage mini__stage--ferea" data-tilt data-cursor="In build">
+              <div class="stage__rig">
+                <span class="mini__ghost" aria-hidden="true">Feréa</span>
+                <div class="phone phone--center">
+                  <div class="ferea-screen"><span class="mono">Manipal</span><b>Feréa</b><em>Specialty coffee. Thoughtfully made.</em><i>Menu · Visit</i></div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="work__text">
-            <span class="mono work__k">02 · Website · In progress</span>
-            <h3>Feréa</h3>
-            <p>A café website for a specialty coffee house near Manipal Lake — brand, menu, story and visit pages. Currently in build; the case study lands here when it ships.</p>
-            <p class="mono work__stack">React 19 · Vite · Tailwind 4 · Framer Motion</p>
-          </div>
-        </article>
+            <div class="mini__text">
+              <span class="mono proj__k">Website · In build</span>
+              <h3>Feréa Coffee House</h3>
+              <p>A website for a specialty coffee house near Manipal Lake: brand, menu, story and visit pages.</p>
+              <p class="mono proj__stack">React 19 · Vite · Tailwind 4 · Framer Motion</p>
+            </div>
+          </article>
+
+          <article class="mini" data-reveal>
+            <div class="mini__stage mini__stage--hms" data-tilt data-cursor="Soon">
+              <div class="stage__rig">
+                <div class="laptop laptop--center">
+                  <div class="laptop__screen">
+                    <div class="skel"><i class="skel__side"></i><i class="skel__top"></i><i></i><i></i><i></i><i class="skel__wide"></i></div>
+                  </div>
+                  <div class="laptop__base"></div>
+                </div>
+                <span class="stamp mono">Coming soon</span>
+              </div>
+            </div>
+            <div class="mini__text">
+              <span class="mono proj__k">Full-stack · Coming soon</span>
+              <h3>Hospital Management System</h3>
+              <p>One platform replacing a multispecialty hospital's paper records: appointments, pharmacy, laboratory, operation-theatre scheduling and role-based logins for doctors.</p>
+              <p class="mono proj__stack">Case study and source on GitHub soon</p>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -354,38 +581,58 @@
         <header class="sec__head">
           <span class="idx mono">05</span>
           <h2 class="sec__title">Credentials</h2>
-          <p class="sec__note">Tap or hover a row to preview. Every entry links to the original document.</p>
+          <p class="sec__note">Every document here is the original. Click to open.</p>
         </header>
 
-        <ol class="ledger" id="ledger">
-          <li class="ledger__row" data-preview="assets/cert-math.jpg" data-doc="docs/nptel-advanced-engineering-mathematics.pdf" data-verify="https://nptel.ac.in/noc" data-title="Advanced Engineering Mathematics — NPTEL, IIT Kharagpur">
-            <span class="ledger__i mono">01</span>
-            <div class="ledger__t"><h3>Advanced Engineering Mathematics</h3><p class="mono">NPTEL · IIT Kharagpur · Jan–Apr 2026 · 12 weeks · 4 credits</p></div>
-            <div class="ledger__s"><b><span data-count="91">0</span><small>%</small></b><span class="mono tag tag--acc">Elite + Gold · Top 1%</span></div>
-            <span class="ledger__a"><i></i></span>
-          </li>
-          <li class="ledger__row" data-preview="assets/cert-ee.jpg" data-doc="docs/nptel-introduction-to-electrical-engineering.pdf" data-verify="https://nptel.ac.in/noc" data-title="Introduction to Electrical Engineering — NPTEL, IIT Madras">
-            <span class="ledger__i mono">02</span>
-            <div class="ledger__t"><h3>Introduction to Electrical Engineering</h3><p class="mono">NPTEL · IIT Madras · Jan–Apr 2026 · 12 weeks · 4 credits</p></div>
-            <div class="ledger__s"><b><span data-count="75">0</span><small>%</small></b><span class="mono tag">Elite + Silver</span></div>
-            <span class="ledger__a"><i></i></span>
-          </li>
-          <li class="ledger__row" data-preview="assets/cert-isro.jpg" data-doc="docs/bharatiya-antariksh-hackathon-2026.pdf" data-title="Bharatiya Antariksh Hackathon 2026 — ISRO × Hack2skill">
-            <span class="ledger__i mono">03</span>
-            <div class="ledger__t"><h3>Bharatiya Antariksh Hackathon 2026</h3><p class="mono">Presented by ISRO · Powered by Hack2skill · ID 2026H2S06BAH-P38765</p></div>
-            <div class="ledger__s"><b class="ledger__word">Participant</b><span class="mono tag">Idea submission</span></div>
-            <span class="ledger__a"><i></i></span>
-          </li>
-          <li class="ledger__row" data-preview="docs/sahyadri-mri-internship-certificate.jpg" data-doc="docs/sahyadri-mri-internship-certificate.jpg" data-title="Internship Completion — Sahyadri Diagnostic Centre, MRI Department">
-            <span class="ledger__i mono">04</span>
-            <div class="ledger__t"><h3>MRI Department Internship</h3><p class="mono">Sahyadri Diagnostic Centre, Aurangabad · 22 Jun – 21 Jul 2026</p></div>
-            <div class="ledger__s"><b class="ledger__word">Completed</b><span class="mono tag">Signed · DMRD DNB (Radiology)</span></div>
-            <span class="ledger__a"><i></i></span>
-          </li>
-        </ol>
-        <p class="creds__note mono">NPTEL certificates carry a roll number and QR code that can be verified independently at nptel.ac.in.</p>
+        <div class="gauges">
+          <article class="gauge gauge--acc" data-reveal>
+            <div class="gauge__dial">
+              <svg viewBox="0 0 220 124" aria-hidden="true">
+                <path class="trk" d="M18 110A92 92 0 0 1 202 110" stroke-width="14"/>
+                <path class="val" d="M18 110A92 92 0 0 1 202 110" stroke-width="14" pathLength="100" data-ring="91"/>
+              </svg>
+              <div class="gauge__num"><b data-count="91">91</b><small>%</small></div>
+            </div>
+            <div class="gauge__text">
+              <span class="tag tag--acc mono">Elite + Gold · Top 1%</span>
+              <h3>Advanced Engineering Mathematics</h3>
+              <p>NPTEL · IIT Kharagpur · 12 weeks · 4 credits</p>
+              <p class="mono gauge__roll">Roll no. NPTEL26MA37S990100380</p>
+              <button class="link" type="button" data-lb data-img="assets/cert-math.jpg" data-doc="docs/nptel-advanced-engineering-mathematics.pdf" data-verify="https://nptel.ac.in/noc" data-title="Advanced Engineering Mathematics — NPTEL, IIT Kharagpur">Open certificate <i></i></button>
+            </div>
+          </article>
+          <article class="gauge" data-reveal>
+            <div class="gauge__dial">
+              <svg viewBox="0 0 220 124" aria-hidden="true">
+                <path class="trk" d="M18 110A92 92 0 0 1 202 110" stroke-width="14"/>
+                <path class="val" d="M18 110A92 92 0 0 1 202 110" stroke-width="14" pathLength="100" data-ring="75"/>
+              </svg>
+              <div class="gauge__num"><b data-count="75">75</b><small>%</small></div>
+            </div>
+            <div class="gauge__text">
+              <span class="tag mono">Elite + Silver</span>
+              <h3>Introduction to Electrical Engineering</h3>
+              <p>NPTEL · IIT Madras · 12 weeks · 4 credits</p>
+              <p class="mono gauge__roll">Roll no. NPTEL26EE30S790100005</p>
+              <button class="link" type="button" data-lb data-img="assets/cert-ee.jpg" data-doc="docs/nptel-introduction-to-electrical-engineering.pdf" data-verify="https://nptel.ac.in/noc" data-title="Introduction to Electrical Engineering — NPTEL, IIT Madras">Open certificate <i></i></button>
+            </div>
+          </article>
+        </div>
+
+        <div class="paper">
+          <div class="paper__text">
+            <span class="idx mono">On paper</span>
+            <h3>The certificates themselves.</h3>
+            <p>Hover to fan them out, click any one to read it in full. NPTEL certificates carry a roll number and QR code you can verify at nptel.ac.in.</p>
+          </div>
+          <div class="stack" id="stack">
+            <button class="cert" type="button" style="--r0:-14deg;--x0:-120px;--y0:18px;--r1:-18deg;--x1:-250px;--y1:30px" data-lb data-img="assets/cert-isro.jpg" data-doc="docs/bharatiya-antariksh-hackathon-2026.pdf" data-title="Bharatiya Antariksh Hackathon 2026 — ISRO × Hack2skill"><img src="assets/cert-isro.jpg" alt="Bharatiya Antariksh Hackathon 2026 participation certificate" loading="lazy" width="1400" height="1050"></button>
+            <button class="cert cert--tall" type="button" style="--r0:8deg;--x0:130px;--y0:0px;--r1:12deg;--x1:260px;--y1:-10px" data-lb data-img="docs/sahyadri-mri-internship-certificate.jpg" data-doc="docs/sahyadri-mri-internship-certificate.jpg" data-title="Internship Completion — Sahyadri Diagnostic Centre, MRI Department"><img src="docs/sahyadri-mri-internship-certificate.jpg" alt="Sahyadri Diagnostic Centre internship completion certificate" loading="lazy" width="911" height="1280"></button>
+            <button class="cert" type="button" style="--r0:-4deg;--x0:-30px;--y0:-6px;--r1:-6deg;--x1:-80px;--y1:-26px" data-lb data-img="assets/cert-ee.jpg" data-doc="docs/nptel-introduction-to-electrical-engineering.pdf" data-verify="https://nptel.ac.in/noc" data-title="Introduction to Electrical Engineering — NPTEL, IIT Madras"><img src="assets/cert-ee.jpg" alt="NPTEL Introduction to Electrical Engineering certificate" loading="lazy" width="1400" height="1003"></button>
+            <button class="cert" type="button" style="--r0:3deg;--x0:30px;--y0:10px;--r1:4deg;--x1:90px;--y1:20px" data-lb data-img="assets/cert-math.jpg" data-doc="docs/nptel-advanced-engineering-mathematics.pdf" data-verify="https://nptel.ac.in/noc" data-title="Advanced Engineering Mathematics — NPTEL, IIT Kharagpur"><img src="assets/cert-math.jpg" alt="NPTEL Advanced Engineering Mathematics certificate" loading="lazy" width="1400" height="1003"></button>
+          </div>
+        </div>
       </div>
-      <div class="preview" id="preview" aria-hidden="true"><img id="previewImg" alt=""></div>
     </section>
 
     <!-- ================= TOOLKIT ================= -->
@@ -401,27 +648,46 @@
           <div><h3 class="mono">Analysis</h3><p>Engineering mathematics · modelling · MATLAB · Python</p></div>
           <div><h3 class="mono">Software</h3><p>JavaScript · React · TypeScript · Tailwind · Vite · Git and GitHub</p></div>
           <div><h3 class="mono">Design</h3><p>Interface design · typography · motion · design systems</p></div>
-          <div><h3 class="mono">Languages</h3><p>English (professional) · Hindi and Urdu (native) · Marathi (conversational)</p></div>
+          <div><h3 class="mono">Documentation</h3><p>Structured technical reports · daily internship logs · concept notes</p></div>
         </div>
       </div>
     </section>
 
     <!-- ================= CONTACT ================= -->
     <section class="sec contact" id="contact">
-      <div class="wrap">
-        <span class="idx mono">07</span>
-        <h2 class="contact__title"><span class="line"><span class="split" data-split-scroll>Let's build</span></span><span class="line"><span class="split" data-split-scroll>something that</span></span><span class="line"><span class="split split--acc" data-split-scroll>matters.</span></span></h2>
-        <p class="contact__lede">Medical devices, imaging, embedded systems or R&amp;D — looking for an internship where I can build and learn. Based in Manipal, happy to relocate.</p>
-        <div class="contact__actions">
-          <a class="btn btn--solid" href="mailto:abdulhaq7378@gmail.com" data-magnet>Email me</a>
-          <button class="btn" type="button" id="copyMail" data-magnet>Copy address</button>
+      <div class="wrap contact__grid">
+        <div>
+          <span class="idx mono">07</span>
+          <h2 class="contact__title"><span class="line"><span class="split" data-split-scroll>Let's build</span></span><span class="line"><span class="split" data-split-scroll>something that</span></span><span class="line"><span class="split split--acc" data-split-scroll>matters.</span></span></h2>
+          <p class="contact__lede">Medical devices, imaging, embedded systems or R&amp;D — looking for an internship where I can build and learn. Based in Manipal, happy to relocate.</p>
+          <div class="contact__actions">
+            <a class="btn btn--solid" href="mailto:abdulhaq7378@gmail.com" data-magnet>Email me</a>
+            <button class="btn" type="button" id="copyMail" data-magnet>Copy address</button>
+          </div>
         </div>
-        <ul class="contact__list">
-          <li><span class="mono">Email</span><a href="mailto:abdulhaq7378@gmail.com">abdulhaq7378@gmail.com</a></li>
-          <li><span class="mono">Phone</span><a href="tel:+917378456877">+91 73784 56877</a></li>
-          <li><span class="mono">LinkedIn</span><a href="https://www.linkedin.com/in/mohammed-abdul-haq-a0b946321" target="_blank" rel="noopener">in/mohammed-abdul-haq</a></li>
-          <li><span class="mono">GitHub</span><a href="https://github.com/abdulhaq7378-hash" target="_blank" rel="noopener">abdulhaq7378-hash</a></li>
-        </ul>
+
+        <aside class="rx" id="rx" aria-label="Contact card styled as a prescription">
+          <header class="rx__head">
+            <div><b>Mohammed Abdul Haq</b><span>B.Tech Biomedical Engineering · MIT Manipal</span></div>
+            <span class="mono">Date<br><span id="rxDate">15 Sep 2026</span></span>
+          </header>
+          <p class="rx__for mono">For <span class="ink" data-ink>your team</span></p>
+          <div class="rx__sym" aria-hidden="true">℞</div>
+          <ol class="rx__lines">
+            <li><span class="mono">Take</span><b class="ink" data-ink>1 × biomedical engineering intern</b></li>
+            <li><span class="mono">Good for</span><b class="ink" data-ink>imaging · embedded sensing · R&amp;D</b></li>
+            <li><span class="mono">Directions</span><b class="ink" data-ink>give real problems, expect prototypes</b></li>
+            <li><span class="mono">Refills</span><b class="ink" data-ink>unlimited curiosity</b></li>
+          </ol>
+          <div class="rx__sign"><span class="sig ink" data-ink>Abdul Haq</span><span class="mono">Signature</span></div>
+          <div class="rx__tear">
+            <a href="mailto:abdulhaq7378@gmail.com"><span class="mono">Email</span>abdulhaq7378@gmail.com</a>
+            <a href="tel:+917378456877"><span class="mono">Phone</span>+91 73784 56877</a>
+            <a href="https://www.linkedin.com/in/mohammed-abdul-haq-a0b946321" target="_blank" rel="noopener"><span class="mono">LinkedIn</span>in/mohammed-abdul-haq</a>
+            <a href="https://github.com/abdulhaq7378-hash" target="_blank" rel="noopener"><span class="mono">GitHub</span>abdulhaq7378-hash</a>
+            <p class="rx__fine mono">Not a medical prescription. An engineer's referral.</p>
+          </div>
+        </aside>
       </div>
     </section>
   </main>
