@@ -50,8 +50,21 @@
     <div class="nav__right">
       <span class="nav__clock mono" id="clock">Manipal · --:--</span>
       <a class="nav__cta" href="#contact"><i></i>Open to internships</a>
+      <button class="nav__menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Open menu"><span></span><span></span></button>
     </div>
   </header>
+
+  <div class="mnav" id="mnav" hidden>
+    <nav aria-label="Sections">
+      <a href="#profile"><span class="mono">01</span>Profile</a>
+      <a href="#internship"><span class="mono">02</span>Internship</a>
+      <a href="#guardianband"><span class="mono">03</span>GuardianBand</a>
+      <a href="#work"><span class="mono">04</span>Work</a>
+      <a href="#credentials"><span class="mono">05</span>Credentials</a>
+      <a href="#contact"><span class="mono">07</span>Contact</a>
+    </nav>
+    <p class="mnav__foot mono"><i></i>Open to internships · <a href="mailto:abdulhaq7378@gmail.com">abdulhaq7378@gmail.com</a></p>
+  </div>
 
   <main id="main">
 
@@ -207,7 +220,7 @@
           <li class="yr now">
             <h4>Year 3 <span class="mono">2026–27</span> <em class="mono">Now</em></h4>
             <ul class="ev">
-              <li class="hi"><time class="mono">Sep 2026</time><b>Building Feréa Coffee House</b><span>Café website</span></li>
+              <li class="hi"><time class="mono">Sep 2026</time><b>Launched Feréa Coffee House</b><span>Café website, live on GitHub Pages</span></li>
             </ul>
           </li>
           <li class="yr future">
@@ -225,9 +238,11 @@
       <div class="intern__stage" id="internStage">
         <div class="wrap intern__grid">
           <div class="intern__left">
-            <span class="idx mono">02 <em>/ Internship</em></span>
-            <h2 class="sec__title">Inside a<br>3&nbsp;Tesla scanner.</h2>
-            <p class="intern__role mono">MRI Department · Sahyadri Diagnostic Centre, Aurangabad<br>22 Jun – 21 Jul 2026</p>
+            <div class="intern__head">
+              <span class="idx mono">02 <em>/ Internship</em></span>
+              <h2 class="sec__title">Inside a<br>3&nbsp;Tesla scanner.</h2>
+              <p class="intern__role mono">MRI Department · Sahyadri Diagnostic Centre, Aurangabad<br>22 Jun – 21 Jul 2026</p>
+            </div>
 
             <div class="deck" id="deck">
               <article class="note">
@@ -273,105 +288,176 @@
             <a class="link" href="docs/sahyadri-mri-internship-certificate.jpg" target="_blank" rel="noopener" data-cursor="Open"><span class="mono">Proof</span> Internship completion certificate <i></i></a>
           </div>
 
-          <figure class="mri" id="mri" data-phase="0" aria-label="Front view of an MRI scanner showing the parts, the patient workflow, safety zones and the console">
+          <figure class="mri" id="mri" data-phase="0" aria-label="Front view of a 3 Tesla MRI scanner with a cutaway of its magnet, gradient and RF coil layers, the patient table, the safety line and the console">
             <svg viewBox="0 0 820 640" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <defs>
-                <linearGradient id="mHousing" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#161c21"/><stop offset="1" stop-color="#0a0d10"/></linearGradient>
-                <radialGradient id="mBore" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ff5a3c" stop-opacity=".28"/><stop offset=".7" stop-color="#ff5a3c" stop-opacity=".06"/><stop offset="1" stop-color="#ff5a3c" stop-opacity="0"/></radialGradient>
-                <radialGradient id="mHalo" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#e9e6df" stop-opacity=".06"/><stop offset="1" stop-color="#e9e6df" stop-opacity="0"/></radialGradient>
+                <linearGradient id="mCover" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3f1ec"/><stop offset=".55" stop-color="#dcd9d2"/><stop offset="1" stop-color="#b9b6ae"/></linearGradient>
+                <linearGradient id="mSkirt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9d9a93"/><stop offset="1" stop-color="#6f6d68"/></linearGradient>
+                <radialGradient id="mDish" cx="50%" cy="45%" r="55%"><stop offset=".6" stop-color="#e7e4de"/><stop offset=".9" stop-color="#c3c0b9"/><stop offset="1" stop-color="#a9a69f"/></radialGradient>
+                <radialGradient id="mBore" cx="50%" cy="46%" r="52%"><stop offset="0" stop-color="#20262b"/><stop offset=".55" stop-color="#0f1316"/><stop offset="1" stop-color="#050607"/></radialGradient>
+                <radialGradient id="mTunnel" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ff5a3c" stop-opacity=".22"/><stop offset=".7" stop-color="#ff5a3c" stop-opacity=".04"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+                <linearGradient id="mSteel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c3c8cc"/><stop offset="1" stop-color="#6d7479"/></linearGradient>
+                <linearGradient id="mCol" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3a4045"/><stop offset=".5" stop-color="#5a6166"/><stop offset="1" stop-color="#30353a"/></linearGradient>
+                <filter id="mShadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000" flood-opacity=".6"/></filter>
               </defs>
 
-              <!-- safety: 5-gauss line + zones (phase 2) -->
+              <!-- safety: 5-gauss line (phase 2) -->
               <g data-show="2">
-                <ellipse class="gauss" cx="410" cy="310" rx="398" ry="304" stroke="#ff5a3c" stroke-width="1.4" stroke-dasharray="8 8"/>
-                <path d="M40 40H240M40 40V120" stroke="rgba(233,230,223,.3)"/>
-                <path d="M780 600H580M780 600V520" stroke="rgba(233,230,223,.3)"/>
+                <ellipse class="gauss" cx="410" cy="300" rx="400" ry="300" stroke="#ff5a3c" stroke-width="1.6" stroke-dasharray="9 8"/>
+                <text x="410" y="628" fill="#ff5a3c" font-family="JetBrains Mono" font-size="12" text-anchor="middle" letter-spacing="1.5">ZONE IV · 5 GAUSS</text>
               </g>
 
-              <circle cx="410" cy="310" r="300" fill="url(#mHalo)"/>
+              <ellipse cx="410" cy="588" rx="300" ry="20" fill="#000" opacity=".55"/>
 
-              <!-- hardware (always, drawn in phase 0) -->
-              <rect class="draw" pathLength="1" x="110" y="60" width="600" height="500" rx="130" fill="url(#mHousing)" stroke="#e9e6df" stroke-width="1.5"/>
-              <path class="draw" pathLength="1" d="M410 60V30M394 30H426" stroke="#e9e6df" stroke-width="1.5"/>
-              <circle class="draw" pathLength="1" cx="410" cy="310" r="238" stroke="#e9e6df" stroke-width="1.2"/>
-              <circle class="draw" pathLength="1" cx="410" cy="310" r="226" stroke="rgba(233,230,223,.55)" stroke-width="1" stroke-dasharray="3 6"/>
-              <circle class="draw" pathLength="1" cx="410" cy="310" r="196" stroke="#e9e6df" stroke-width="1.1"/>
-              <circle class="draw" pathLength="1" cx="410" cy="310" r="184" stroke="#e9e6df" stroke-width="1.1"/>
-              <g class="grads">
-                <path class="grad gx" d="M410 116a194 194 0 0 1 168 97" stroke="#ff5a3c" stroke-width="3"/>
-                <path class="grad gy" d="M578 407a194 194 0 0 1-336 0" stroke="#e8b44f" stroke-width="3"/>
-                <path class="grad gz" d="M242 213a194 194 0 0 1 168-97" stroke="#8fd9a8" stroke-width="3"/>
+              <!-- gantry -->
+              <g filter="url(#mShadow)">
+                <rect x="150" y="512" width="520" height="66" rx="18" fill="url(#mSkirt)"/>
+                <rect x="140" y="36" width="540" height="508" rx="150" fill="url(#mCover)"/>
               </g>
-              <circle class="draw" pathLength="1" cx="410" cy="310" r="160" stroke="#e9e6df" stroke-width="1.1"/>
-              <g class="rungs" stroke="rgba(233,230,223,.55)" stroke-width="1.6">
-                <path d="M410 150v14"/><path d="M471 162l-5 13"/><path d="M523 197l-10 10"/><path d="M558 249l-13 5"/><path d="M570 310h-14"/><path d="M558 371l-13-5"/><path d="M523 423l-10-10"/><path d="M471 458l-5-13"/><path d="M410 470v-14"/><path d="M349 458l5-13"/><path d="M297 423l10-10"/><path d="M262 371l13-5"/><path d="M250 310h14"/><path d="M262 249l13 5"/><path d="M297 197l10 10"/><path d="M349 162l5 13"/>
+              <path d="M170 470 Q410 520 650 470" stroke="rgba(0,0,0,.12)" stroke-width="2"/>
+              <circle cx="410" cy="300" r="252" fill="url(#mDish)"/>
+              <circle cx="410" cy="300" r="252" stroke="rgba(0,0,0,.18)" stroke-width="1.5"/>
+              <circle cx="410" cy="300" r="238" stroke="rgba(255,255,255,.7)" stroke-width="1.2"/>
+              <!-- status display + panels -->
+              <rect x="378" y="58" width="64" height="16" rx="8" fill="#15191c"/>
+              <circle cx="392" cy="66" r="3.5" fill="#8fd9a8" class="mri__status"/>
+              <rect x="400" y="63" width="34" height="6" rx="3" fill="#2d343a"/>
+              <g fill="#15191c">
+                <rect x="186" y="262" width="26" height="78" rx="9"/>
+                <rect x="608" y="262" width="26" height="78" rx="9"/>
               </g>
-              <circle class="draw" pathLength="1" cx="410" cy="310" r="134" fill="url(#mBore)" stroke="#e9e6df" stroke-width="1.5"/>
+              <g fill="#3b4349">
+                <circle cx="199" cy="280" r="5"/><circle cx="199" cy="300" r="5"/><circle cx="199" cy="320" r="5" fill="#ff5a3c"/>
+                <circle cx="621" cy="280" r="5"/><circle cx="621" cy="300" r="5"/><circle cx="621" cy="320" r="5" fill="#ff5a3c"/>
+              </g>
+              <text x="200" y="462" fill="#8c8982" font-family="JetBrains Mono" font-size="12" letter-spacing="2">3.0 T</text>
+
+              <!-- bore -->
+              <circle cx="410" cy="300" r="164" fill="#1b2024"/>
+              <circle cx="410" cy="300" r="160" fill="url(#mBore)"/>
+              <circle cx="410" cy="300" r="128" fill="#07090b" opacity=".55"/>
+              <circle cx="410" cy="300" r="160" fill="url(#mTunnel)"/>
+              <circle class="mri__led" cx="410" cy="300" r="157" stroke="#cfe6ff" stroke-width="2" opacity=".35"/>
+              <circle cx="410" cy="300" r="128" stroke="rgba(255,255,255,.07)"/>
+
+              <!-- cutaway: magnet, gradient and RF layers (phases 0 and 3) -->
+              <g class="cut" data-show="0 3">
+                <path d="M410 40A260 260 0 0 1 670 300L570 300A160 160 0 0 0 410 140Z" fill="#07090b"/>
+                <path d="M410 52A248 248 0 0 1 658 300L654 300A244 244 0 0 0 410 56Z" fill="url(#mSteel)"/>
+                <path d="M410 64A236 236 0 0 1 646 300L616 300A206 206 0 0 0 410 94Z" fill="#12304a"/>
+                <g id="mriWind"></g>
+                <path d="M410 100A200 200 0 0 1 610 300L590 300A180 180 0 0 0 410 120Z" fill="#2a1e15"/>
+                <g class="traces" stroke="#d98a4a" stroke-width="1.6" stroke-dasharray="10 5">
+                  <path d="M410 114A186 186 0 0 1 596 300"/><path d="M410 110A190 190 0 0 1 600 300"/><path d="M410 106A194 194 0 0 1 604 300"/>
+                </g>
+                <path d="M410 124A176 176 0 0 1 586 300L576 300A166 166 0 0 0 410 134Z" fill="#10231b"/>
+                <g id="mriRungs" class="rungs"></g>
+                <path d="M410 134A166 166 0 0 1 576 300L570 300A160 160 0 0 0 410 140Z" fill="#cfccc5"/>
+                <path d="M410 40V140M570 300H670" stroke="rgba(255,255,255,.45)" stroke-width="1.2"/>
+              </g>
 
               <!-- B0 into the page (phase 0) -->
               <g data-show="0">
-                <circle class="ripple" cx="410" cy="310" r="40" stroke="rgba(255,90,60,.5)"/>
-                <circle class="ripple r2" cx="410" cy="310" r="40" stroke="rgba(255,90,60,.5)"/>
-                <circle cx="410" cy="310" r="14" stroke="#e9e6df" stroke-width="1.4"/>
-                <circle cx="410" cy="310" r="3.5" fill="#e9e6df"/>
-                <text x="432" y="300" fill="#e9e6df" font-family="JetBrains Mono" font-size="13">B₀</text>
+                <circle class="ripple" cx="410" cy="300" r="34" stroke="rgba(255,90,60,.55)"/>
+                <circle class="ripple r2" cx="410" cy="300" r="34" stroke="rgba(255,90,60,.55)"/>
+                <circle cx="410" cy="300" r="13" stroke="#e9e6df" stroke-width="1.4"/>
+                <circle cx="410" cy="300" r="3.5" fill="#e9e6df"/>
+                <text x="428" y="292" fill="#e9e6df" font-family="JetBrains Mono" font-size="13">B₀</text>
               </g>
 
-              <!-- table (always) -->
-              <path d="M250 382H810" stroke="#e9e6df" stroke-width="3"/>
-              <path d="M250 394H810" stroke="rgba(233,230,223,.5)" stroke-width="1.2"/>
-              <path d="M720 394V600M780 394V600M708 600H792" stroke="rgba(233,230,223,.5)" stroke-width="1.2"/>
+              <!-- laser alignment + isocentre (phase 1) -->
+              <g data-show="1">
+                <path d="M410 146V392M262 300H558" stroke="#ff3b30" stroke-width="1.2" stroke-dasharray="6 5"/>
+                <circle cx="410" cy="300" r="9" stroke="#ff3b30" stroke-width="1.4"/>
+              </g>
 
-              <!-- patient (phase 1) -->
-              <g class="patient">
-                <ellipse cx="410" cy="345" rx="92" ry="36" fill="rgba(233,230,223,.1)" stroke="#e9e6df" stroke-width="1.3"/>
-                <ellipse cx="410" cy="338" rx="38" ry="14" fill="rgba(233,230,223,.08)" stroke="rgba(233,230,223,.4)"/>
-                <path d="M410 250V290" stroke="#ff5a3c" stroke-dasharray="3 5"/>
+              <!-- patient: seen from the foot end (phases 1 and 3) -->
+              <g class="patient" data-show="1 3">
+                <ellipse cx="410" cy="376" rx="84" ry="20" fill="#cfd4d6" opacity=".22" stroke="rgba(233,230,223,.55)"/>
+                <rect x="380" y="322" width="20" height="50" rx="10" fill="#d8d3cb" stroke="#8c877f"/>
+                <rect x="420" y="322" width="20" height="50" rx="10" fill="#d8d3cb" stroke="#8c877f"/>
+                <path d="M336 380Q410 318 484 380" stroke="#e8b44f" stroke-width="6"/>
+                <path d="M336 380Q410 318 484 380" stroke="#0b0d0f" stroke-width="1.5" stroke-dasharray="2 10"/>
               </g>
 
               <!-- QA phantom (phase 2) -->
               <g data-show="2">
-                <circle cx="410" cy="330" r="46" fill="rgba(143,217,168,.08)" stroke="#8fd9a8" stroke-width="1.3"/>
-                <path d="M380 330H440M410 300V360M388 308L432 352M432 308L388 352" stroke="rgba(143,217,168,.45)"/>
+                <rect x="360" y="386" width="100" height="8" rx="3" fill="#6d7479"/>
+                <circle cx="410" cy="346" r="42" fill="rgba(143,217,168,.1)" stroke="#8fd9a8" stroke-width="1.6"/>
+                <circle cx="410" cy="346" r="30" stroke="rgba(143,217,168,.45)"/>
+                <path d="M378 346H442M410 314V378" stroke="rgba(143,217,168,.45)"/>
+                <circle cx="396" cy="334" r="4" fill="#8fd9a8"/><circle cx="424" cy="358" r="6" fill="rgba(143,217,168,.6)"/>
+              </g>
+              <!-- no-metal marker (phase 2) -->
+              <g data-show="2">
+                <circle cx="626" cy="96" r="17" fill="#fff" stroke="#ff3b30" stroke-width="3"/>
+                <path d="M618 90l12 12M630 88a5 5 0 1 0-6 8l-6 6" stroke="#15191c" stroke-width="2"/>
+                <path d="M614 108L638 84" stroke="#ff3b30" stroke-width="3"/>
+              </g>
+
+              <!-- patient table (always) -->
+              <g>
+                <rect x="302" y="392" width="216" height="16" rx="8" fill="#e4e1db"/>
+                <rect x="326" y="408" width="168" height="12" rx="4" fill="#8f8c85"/>
+                <rect x="378" y="420" width="64" height="140" rx="6" fill="url(#mCol)"/>
+                <rect x="322" y="556" width="176" height="18" rx="7" fill="#2c3237"/>
               </g>
 
               <!-- leaders -->
-              <g stroke="rgba(233,230,223,.45)" stroke-width="1">
-                <path data-show="0" d="M580 136L630 96H812"/>
-                <path data-show="0 3" d="M578 213L640 182H812"/>
-                <path data-show="0 3" d="M560 250L660 262H812"/>
-                <path data-show="0" d="M340 280L262 206H8"/>
-                <path data-show="1" d="M700 382L660 452H812"/>
-                <path data-show="1" d="M320 352L256 470H8"/>
-                <path data-show="2" d="M456 330L640 182H812"/>
-                <path data-show="2" d="M110 190L60 206H8"/>
+              <g class="leads" stroke="#ff5a3c" stroke-width="1.1">
+                <path data-show="0 3" d="M494 69L512 58H706"/>
+                <path data-show="0" d="M546 126L566 112H706"/>
+                <path data-show="0 3" d="M571 199L600 172H706"/>
+                <path data-show="0 3" d="M576 259L610 232H706"/>
+                <path data-show="1" d="M410 150L440 112H706"/>
+                <path data-show="1" d="M470 352L520 172H706"/>
+                <path data-show="1" d="M419 300L560 232H706"/>
+                <path data-show="1" d="M442 470L540 292H706"/>
+                <path data-show="2" d="M693 88L700 58H706"/>
+                <path data-show="2" d="M643 96L660 112H706"/>
+                <path data-show="2" d="M452 346L560 232H706"/>
+              </g>
+              <g class="leads" data-show="0 1 2 3" fill="#ff5a3c">
+                <circle data-show="0 3" cx="494" cy="69" r="3"/><circle data-show="0" cx="546" cy="126" r="3"/><circle data-show="0 3" cx="571" cy="199" r="3"/><circle data-show="0 3" cx="576" cy="259" r="3"/>
+                <circle data-show="1" cx="410" cy="150" r="3"/><circle data-show="1" cx="470" cy="352" r="3"/><circle data-show="1" cx="419" cy="300" r="3"/><circle data-show="1" cx="442" cy="470" r="3"/>
+                <circle data-show="2" cx="643" cy="96" r="3"/><circle data-show="2" cx="452" cy="346" r="3"/>
               </g>
             </svg>
 
             <ul class="mri__labels mono">
-              <li data-show="0" style="--x:77%;--y:15%"><b>Superconducting magnet</b><span>3.0 T · liquid-helium cooled</span></li>
-              <li data-show="0" style="--x:78.4%;--y:28.4%"><b>Gradient coils</b><span>Gx · Gy · Gz — spatial encoding</span></li>
-              <li data-show="0" style="--x:80.6%;--y:40.9%"><b>RF body coil</b><span>transmit · receive</span></li>
-              <li data-show="0" style="--x:1%;--y:32.2%"><b>Bore · B₀</b><span>main field runs into the page</span></li>
-              <li data-show="1" style="--x:80.6%;--y:70.6%"><b>Patient table</b><span>moves the patient into the bore</span></li>
-              <li data-show="1" style="--x:1%;--y:73.4%"><b>Isocentre</b><span>anatomy aligned to the field centre</span></li>
-              <li data-show="2" style="--x:78.4%;--y:28.4%"><b>QA phantom</b><span>routine image-quality checks</span></li>
-              <li data-show="2" style="--x:1%;--y:32.2%"><b>Ferromagnetic screening</b><span>nothing metal crosses the line</span></li>
-              <li data-show="2" style="--x:5.5%;--y:4%"><b class="acc">5-gauss line</b><span>Zone IV · magnet room</span></li>
-              <li data-show="3" style="--x:78.4%;--y:28.4%"><b>Gradients switching</b><span>the knocking you hear</span></li>
-              <li data-show="3" style="--x:80.6%;--y:40.9%"><b>RF pulses</b><span>excite, then listen</span></li>
+              <li data-show="0" style="--y:9.06%"><b>Cryostat</b><span>vacuum-insulated steel shell</span></li>
+              <li data-show="0" style="--y:17.5%"><b>Superconducting magnet</b><span>windings in liquid helium</span></li>
+              <li data-show="0" style="--y:26.9%"><b>Gradient coils</b><span>Gx · Gy · Gz — spatial encoding</span></li>
+              <li data-show="0" style="--y:36.25%"><b>RF body coil</b><span>birdcage · transmit and receive</span></li>
+              <li data-show="1" style="--y:17.5%"><b>Laser alignment</b><span>landmark the region of interest</span></li>
+              <li data-show="1" style="--y:26.9%"><b>Receive coil</b><span>placed over the anatomy</span></li>
+              <li data-show="1" style="--y:36.25%"><b>Isocentre</b><span>where the field is most uniform</span></li>
+              <li data-show="1" style="--y:45.6%"><b>Patient table</b><span>moves the patient into the bore</span></li>
+              <li data-show="2" style="--y:9.06%"><b class="acc">5-gauss line</b><span>Zone IV boundary, around the magnet</span></li>
+              <li data-show="2" style="--y:17.5%"><b>Ferromagnetic screening</b><span>nothing metal crosses the line</span></li>
+              <li data-show="2" style="--y:36.25%"><b>QA phantom</b><span>routine image-quality checks</span></li>
+              <li data-show="3" style="--y:9.06%"><b>Magnet</b><span>always at field, even when idle</span></li>
+              <li data-show="3" style="--y:26.9%"><b>Gradients switching</b><span>the knocking you hear</span></li>
+              <li data-show="3" style="--y:36.25%"><b>RF pulses</b><span>excite, then listen</span></li>
             </ul>
 
             <ol class="wfchips mono" data-show="1" aria-hidden="true"><li>Screen</li><li>Position</li><li>Protocol</li><li>Acquire</li><li>Archive</li></ol>
 
             <div class="console" data-show="3" aria-hidden="true">
-              <div class="console__head mono"><span>Console</span><span class="console__live">Acquiring</span></div>
-              <div class="console__k"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="console__head mono"><span>Console · T2 axial</span><span class="console__live">Acquiring</span></div>
+              <div class="console__body">
+                <div class="console__img"><i></i></div>
+                <dl class="console__meta mono">
+                  <div><dt>TR</dt><dd>4000 ms</dd></div>
+                  <div><dt>TE</dt><dd>90 ms</dd></div>
+                  <div><dt>Slice</dt><dd>12 / 24</dd></div>
+                </dl>
+              </div>
               <div class="console__bar"><i></i></div>
-              <p class="mono">k-space filling · illustrative</p>
+              <p class="mono">Illustrative, not patient data</p>
             </div>
 
-            <figcaption class="mono">Fig. 02 — Front view, simplified. Drawn from what I learned on site.</figcaption>
+            <figcaption class="mono">Fig. 02 — Front view with a cutaway, simplified. Drawn from what I learned on site.</figcaption>
           </figure>
         </div>
       </div>
@@ -420,7 +506,7 @@
                 <li><b>Stroke-risk</b> patients</li>
                 <li><b>Home healthcare</b> monitoring</li>
               </ul>
-              <span class="hz__hint mono">Keep scrolling →</span>
+              <span class="hz__hint mono"><span class="hz__hint-d">Keep scrolling</span><span class="hz__hint-m">Swipe for more</span> →</span>
             </article>
 
             <article class="hz__p hz__p--moves">
@@ -471,16 +557,71 @@
       <div class="gbs" id="gbs" data-state="0">
         <div class="wrap gbs__grid">
           <figure class="gbs__fig" aria-hidden="true">
-            <div class="band">
-              <div class="band__strap"></div>
-              <div class="band__case">
-                <div class="band__waves"><i></i><i></i><i></i></div>
-                <div class="band__led"></div>
-                <span class="band__word mono" id="bandWord">Armed</span>
-                <div class="band__grille"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
-              <div class="band__btn"></div>
-              <div class="band__signal"><i></i><i></i><i></i></div>
+            <div class="watchwrap">
+              <svg class="watch" viewBox="0 0 360 560">
+                <defs>
+                  <linearGradient id="wStrap" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#101417"/><stop offset=".5" stop-color="#232a2f"/><stop offset="1" stop-color="#101417"/></linearGradient>
+                  <linearGradient id="wCase" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5d666d"/><stop offset=".35" stop-color="#2c3338"/><stop offset=".7" stop-color="#1a1f23"/><stop offset="1" stop-color="#3b4349"/></linearGradient>
+                  <linearGradient id="wBezel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b0e10"/><stop offset="1" stop-color="#050607"/></linearGradient>
+                  <radialGradient id="wGlow" cx="50%" cy="50%" r="50%"><stop offset="0" class="w-glowstop" stop-opacity=".55"/><stop offset=".55" class="w-glowstop" stop-opacity=".12"/><stop offset="1" class="w-glowstop" stop-opacity="0"/></radialGradient>
+                  <linearGradient id="wGlass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".09"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></linearGradient>
+                  <filter id="wShadow" x="-30%" y="-20%" width="160%" height="140%"><feDropShadow dx="0" dy="30" stdDeviation="26" flood-color="#000" flood-opacity=".75"/></filter>
+                  <clipPath id="wScreen"><rect x="92" y="132" width="176" height="276" rx="56"/></clipPath>
+                </defs>
+
+                <!-- straps -->
+                <rect x="116" y="-10" width="128" height="160" rx="24" fill="url(#wStrap)"/>
+                <rect x="116" y="410" width="128" height="160" rx="24" fill="url(#wStrap)"/>
+                <path d="M128 0V130M232 0V130M128 430V560M232 430V560" stroke="rgba(233,230,223,.1)" stroke-dasharray="4 5"/>
+                <g fill="#07090a"><circle cx="180" cy="478" r="4.5"/><circle cx="180" cy="506" r="4.5"/><circle cx="180" cy="534" r="4.5"/></g>
+
+                <!-- case -->
+                <g filter="url(#wShadow)">
+                  <rect x="72" y="112" width="216" height="316" rx="76" fill="url(#wCase)"/>
+                </g>
+                <rect x="72.5" y="112.5" width="215" height="315" rx="75.5" stroke="rgba(255,255,255,.14)"/>
+                <!-- crown + cancel button -->
+                <rect x="284" y="200" width="16" height="48" rx="7" fill="#4b545a"/>
+                <path d="M288 206V242M292 206V242M296 206V242" stroke="#2b3136" stroke-width="1.2"/>
+                <rect class="w-cancel" x="285" y="276" width="11" height="40" rx="5.5" fill="#ff5a3c"/>
+                <circle class="w-press" cx="291" cy="296" r="12" stroke="#ff8a3c" stroke-width="1.5"/>
+                <!-- bezel + screen -->
+                <rect x="84" y="124" width="192" height="292" rx="64" fill="url(#wBezel)"/>
+                <rect x="92" y="132" width="176" height="276" rx="56" fill="#020304"/>
+
+                <g clip-path="url(#wScreen)">
+                  <circle cx="180" cy="252" r="96" fill="url(#wGlow)" class="w-glow"/>
+                  <text x="180" y="170" fill="#9fa39d" font-family="JetBrains Mono" font-size="12" text-anchor="middle" letter-spacing="1">09:41</text>
+                  <circle cx="180" cy="252" r="56" stroke="rgba(255,255,255,.08)" stroke-width="8"/>
+                  <circle class="w-ring" cx="180" cy="252" r="56" stroke-width="8" stroke-linecap="round" pathLength="100" transform="rotate(-90 180 252)"/>
+                  <circle class="w-wave" cx="180" cy="252" r="56" stroke-width="2"/>
+                  <circle class="w-wave w2" cx="180" cy="252" r="56" stroke-width="2"/>
+
+                  <!-- state icons, all centred on (180, 252) -->
+                  <g class="w-ico w-ico-0" stroke-width="2.6" fill="none">
+                    <path d="M180 232L198 239V252C198 263 190 270 180 274C170 270 162 263 162 252V239Z"/>
+                    <path d="M172 252L178 258L189 246"/>
+                  </g>
+                  <g class="w-ico w-ico-1" stroke-width="2.6" fill="none">
+                    <path d="M158 252H168L173 240L180 266L186 246L190 252H202"/>
+                  </g>
+                  <g class="w-ico w-ico-2" stroke-width="2.6" fill="none">
+                    <path d="M168 262V250C168 243 173 238 180 238C187 238 192 243 192 250V262L196 266H164Z"/>
+                    <path d="M176 270C177 273 183 273 184 270"/>
+                    <path d="M180 234V238"/>
+                  </g>
+                  <g class="w-ico w-ico-3" stroke-width="2.6" fill="none">
+                    <path d="M160 250L200 234L192 272L180 258L172 266V256Z"/>
+                    <path d="M180 258L200 234"/>
+                  </g>
+
+                  <text class="w-label" id="wLabel" x="180" y="340" fill="#e9e6df" font-family="Bricolage Grotesque, sans-serif" font-size="20" font-weight="500" text-anchor="middle">Armed</text>
+                  <text class="w-sub" id="wSub" x="180" y="360" fill="#8a8e88" font-family="JetBrains Mono" font-size="10" text-anchor="middle" letter-spacing=".6">IMU · 50 Hz · all normal</text>
+                  <path class="w-trace w-calm" d="M128 384H148L152 380L156 388L160 384H176L180 381L184 387L188 384H204L208 380L212 388L216 384H232" stroke-width="1.6"/>
+                  <path class="w-trace w-spike" d="M128 384H146L150 386L154 396L158 360L162 392L166 382L170 384H232" stroke-width="1.6"/>
+                </g>
+                <rect x="92" y="132" width="176" height="276" rx="56" fill="url(#wGlass)"/>
+              </svg>
               <div class="sms"><small class="mono">SMS · GuardianBand</small>Possible fall detected. No response from the wearer. Please check on them now.</div>
             </div>
           </figure>
@@ -534,44 +675,46 @@
           </div>
         </article>
 
-        <div class="proj-row">
-          <article class="mini" data-reveal>
-            <div class="mini__stage mini__stage--ferea" data-tilt data-cursor="In build">
-              <div class="stage__rig">
-                <span class="mini__ghost" aria-hidden="true">Feréa</span>
-                <div class="phone phone--center">
-                  <div class="ferea-screen"><span class="mono">Manipal</span><b>Feréa</b><em>Specialty coffee. Thoughtfully made.</em><i>Menu · Visit</i></div>
-                </div>
+        <article class="proj proj--flip" data-reveal>
+          <a class="stage stage--ferea" href="https://abdulhaq7378-hash.github.io/ferea-coffee/" target="_blank" rel="noopener" data-cursor="Visit site" data-tilt>
+            <div class="stage__rig">
+              <div class="laptop laptop--wide">
+                <div class="laptop__screen"><img src="assets/ferea.jpg" alt="Feréa Coffee House website, hero section on a laptop" loading="lazy" width="1440" height="900"></div>
+                <div class="laptop__base"></div>
               </div>
             </div>
-            <div class="mini__text">
-              <span class="mono proj__k">Website · In build</span>
-              <h3>Feréa Coffee House</h3>
-              <p>A website for a specialty coffee house near Manipal Lake: brand, menu, story and visit pages.</p>
-              <p class="mono proj__stack">React 19 · Vite · Tailwind 4 · Framer Motion</p>
+          </a>
+          <div class="proj__text">
+            <span class="mono proj__k">Website · Live</span>
+            <h3>Feréa Coffee House</h3>
+            <p>A concept website for a café near End Point Road, Manipal, built to pitch custom sites to local cafés. Menu at Manipal prices, story, reviews and a visit page, designed phone-first.</p>
+            <p class="mono proj__stack">React 19 · Vite · Tailwind 4 · Framer Motion · GitHub Pages</p>
+            <div class="proj__links">
+              <a class="link" href="https://abdulhaq7378-hash.github.io/ferea-coffee/" target="_blank" rel="noopener">Visit site <i></i></a>
+              <a class="link" href="https://github.com/abdulhaq7378-hash/ferea-coffee" target="_blank" rel="noopener">Source <i></i></a>
             </div>
-          </article>
+          </div>
+        </article>
 
-          <article class="mini" data-reveal>
-            <div class="mini__stage mini__stage--hms" data-tilt data-cursor="Soon">
-              <div class="stage__rig">
-                <div class="laptop laptop--center">
-                  <div class="laptop__screen">
-                    <div class="skel"><i class="skel__side"></i><i class="skel__top"></i><i></i><i></i><i></i><i class="skel__wide"></i></div>
-                  </div>
-                  <div class="laptop__base"></div>
+        <article class="mini mini--wide" data-reveal>
+          <div class="mini__stage mini__stage--hms" data-tilt data-cursor="Soon">
+            <div class="stage__rig">
+              <div class="laptop laptop--center">
+                <div class="laptop__screen">
+                  <div class="skel"><i class="skel__side"></i><i class="skel__top"></i><i></i><i></i><i></i><i class="skel__wide"></i></div>
                 </div>
-                <span class="stamp mono">Coming soon</span>
+                <div class="laptop__base"></div>
               </div>
+              <span class="stamp mono">Coming soon</span>
             </div>
-            <div class="mini__text">
-              <span class="mono proj__k">Full-stack · Coming soon</span>
-              <h3>Hospital Management System</h3>
-              <p>One platform replacing a multispecialty hospital's paper records: appointments, pharmacy, laboratory, operation-theatre scheduling and role-based logins for doctors.</p>
-              <p class="mono proj__stack">Case study and source on GitHub soon</p>
-            </div>
-          </article>
-        </div>
+          </div>
+          <div class="mini__text">
+            <span class="mono proj__k">Full-stack · Coming soon</span>
+            <h3>Hospital Management System</h3>
+            <p>One platform replacing a multispecialty hospital's paper records: appointments, pharmacy, laboratory, operation-theatre scheduling and role-based logins for doctors.</p>
+            <p class="mono proj__stack">Case study and source on GitHub soon</p>
+          </div>
+        </article>
       </div>
     </section>
 

@@ -103,6 +103,39 @@
     new IntersectionObserver(function (es, o) { es.forEach(function (e) { if (e.isIntersecting) { rxCard.classList.add('is-in'); o.disconnect(); } }); }, { threshold: .15 }).observe(rxCard);
   }
 
+  // phone menu
+  var menuBtn = $('#menuBtn'), mnav = $('#mnav');
+  function setMenu(open) {
+    if (!menuBtn) return;
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    mnav.hidden = !open;
+    document.body.classList.toggle('menu-open', open);
+  }
+  if (menuBtn && mnav) {
+    menuBtn.addEventListener('click', function () { setMenu(menuBtn.getAttribute('aria-expanded') !== 'true'); });
+    $$('a', mnav).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+  }
+
+  // scanner cutaway: superconducting windings and RF coil rungs
+  (function buildMriLayers() {
+    var wind = $('#mriWind'), rungs = $('#mriRungs');
+    if (!wind || !rungs) return;
+    var CX = 410, CY = 300;
+    function pol(r, deg) { var a = deg * Math.PI / 180; return [CX + r * Math.cos(a), CY + r * Math.sin(a)]; }
+    function node(tag, attrs, parent) { var n = document.createElementNS(SVGNS, tag); for (var k in attrs) n.setAttribute(k, attrs[k]); parent.appendChild(n); }
+    for (var d = -87; d <= -3; d += 3.4) {
+      var a = pol(215, d), b = pol(227, d + 1.7);
+      node('circle', { cx: a[0].toFixed(1), cy: a[1].toFixed(1), r: 4.3, fill: '#d98a4a' }, wind);
+      node('circle', { cx: b[0].toFixed(1), cy: b[1].toFixed(1), r: 4.3, fill: '#b8692f' }, wind);
+    }
+    for (var e = -84.375; e < 0; e += 11.25) {
+      var p = pol(166.5, e), q = pol(175.5, e);
+      node('line', { x1: p[0].toFixed(1), y1: p[1].toFixed(1), x2: q[0].toFixed(1), y2: q[1].toFixed(1), 'stroke-width': 2.4 }, rungs);
+    }
+  })();
+
   /* ================= GuardianBand exploded view (SVG built once) ================= */
   var gbx = (function buildExploded() {
     var svg = $('#gbxSvg'); if (!svg) return null;
@@ -213,7 +246,7 @@
 
   var lenis = null;
   if (window.Lenis && !reduce) {
-    lenis = new Lenis({ lerp: .09, wheelMultiplier: 1, smoothWheel: true });
+    lenis = new Lenis({ lerp: .12, wheelMultiplier: 1, smoothWheel: true });
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
     gsap.ticker.lagSmoothing(0);
@@ -345,10 +378,17 @@
 
   /* ---------------- internship: note deck + scanner phases ---------------- */
   var deck = $('#deck'), notes = $$('.note', deck), prog = $$('.deck__prog i'), mri = $('#mri');
-  var draws = $$('.draw', mri), chips = $$('.wfchips li');
+  var chips = $$('.wfchips li'), curPhase = -1;
+  function setPhase(ph) {
+    if (!mri || ph === curPhase) return;
+    curPhase = ph;
+    mri.dataset.phase = ph;
+    prog.forEach(function (b, i) { b.classList.toggle('on', i <= ph); });
+  }
   function internUpdate(p) {
-    var P = Math.min(p * 4.15, 3.9999), seg = Math.floor(P), local = P - seg;
-    var f = seg + (seg < 3 ? smooth(.7, 1, local) : 0);
+    // four equal segments; each next card takes over mid-segment so the section never feels stuck
+    var P = Math.min(p * 4, 3.9999), seg = Math.floor(P), local = P - seg;
+    var f = seg + (seg < 3 ? smooth(.45, .8, local) : 0);
     notes.forEach(function (n, i) {
       var d = i - f, y, s, o;
       if (d < 0) { y = d * 90; s = 1 + d * .05; o = clamp(1 + d * 1.7, 0, 1); }
@@ -358,25 +398,33 @@
       n.style.zIndex = String(20 - Math.round(Math.abs(d) * 4));
       n.classList.toggle('is-open', Math.abs(d) < .5);
     });
-    var phase = Math.round(f);
-    prog.forEach(function (b, i) { b.classList.toggle('on', i <= phase); });
-    mri.dataset.phase = phase;
-    var dp = seg === 0 ? clamp(local / .55, 0, 1) : 1;
-    draws.forEach(function (d, i) { d.style.strokeDashoffset = (1 - clamp(dp * draws.length - i, 0, 1)).toFixed(3); });
-    var ci = seg === 1 ? Math.floor(clamp(local / .7, 0, .999) * chips.length) : (seg > 1 ? chips.length - 1 : -1);
+    setPhase(Math.min(3, Math.round(f)));
+    var ci = seg === 1 ? Math.floor(clamp(local / .45, 0, .999) * chips.length) : (seg > 1 ? chips.length - 1 : 0);
     chips.forEach(function (c, i) { c.classList.toggle('on', i <= ci); });
   }
   if (deck && mri && !reduce) {
     mm.add('(min-width: 901px)', function () {
       deck.classList.add('is-live');
-      internUpdate(0);
-      ScrollTrigger.create({ trigger: '#internStage', start: 'top top', end: '+=340%', pin: true, scrub: .5, onUpdate: function (st) { internUpdate(st.progress); } });
+      curPhase = -1; internUpdate(0);
+      ScrollTrigger.create({ trigger: '#internStage', start: 'top top', end: '+=180%', pin: true, anticipatePin: 1, scrub: .15, onUpdate: function (st) { internUpdate(st.progress); } });
       return function () {
         deck.classList.remove('is-live');
         notes.forEach(function (n) { n.style.transform = ''; n.style.opacity = ''; n.style.zIndex = ''; n.classList.remove('is-open'); });
-        draws.forEach(function (d) { d.style.strokeDashoffset = ''; });
-        mri.dataset.phase = '0';
+        curPhase = -1; setPhase(0);
       };
+    });
+    mm.add('(max-width: 900px)', function () {
+      curPhase = -1; setPhase(0);
+      notes.forEach(function (n, i) {
+        n.classList.toggle('is-open', i === 0);
+        ScrollTrigger.create({ trigger: n, start: 'top 82%', end: 'bottom 62%', onToggle: function (st) {
+          if (!st.isActive) return;
+          notes.forEach(function (m) { m.classList.toggle('is-open', m === n); });
+          setPhase(i);
+          chips.forEach(function (c) { c.classList.add('on'); });
+        } });
+      });
+      return function () { notes.forEach(function (m) { m.classList.remove('is-open'); }); };
     });
   }
 
@@ -384,7 +432,7 @@
   if (gbx && !reduce) {
     mm.add('(min-width: 901px)', function () {
       gbx.set(0);
-      ScrollTrigger.create({ trigger: '#gbx', start: 'top top', end: '+=170%', pin: true, scrub: .6, onUpdate: function (st) {
+      ScrollTrigger.create({ trigger: '#gbx', start: 'top top', end: '+=110%', pin: true, anticipatePin: 1, scrub: .2, onUpdate: function (st) {
         gbx.set(smooth(0, 1, clamp((st.progress - .06) / .78, 0, 1)));
       } });
       return function () { gbx.set(1); };
@@ -401,7 +449,7 @@
   if (pin && track && !reduce) {
     mm.add('(min-width: 901px)', function () {
       var dist = function () { return track.scrollWidth - window.innerWidth; };
-      var tween = gsap.to(track, { x: function () { return -dist(); }, ease: 'none', scrollTrigger: { trigger: pin, start: 'top top', end: function () { return '+=' + dist(); }, pin: true, scrub: 1, invalidateOnRefresh: true, anticipatePin: 1 } });
+      var tween = gsap.to(track, { x: function () { return -dist(); }, ease: 'none', scrollTrigger: { trigger: pin, start: 'top top', end: function () { return '+=' + dist(); }, pin: true, scrub: .4, invalidateOnRefresh: true, anticipatePin: 1 } });
       $$('.hz__p', track).forEach(function (p, i) {
         if (!i) return;
         gsap.fromTo(p.children, { y: 40, opacity: 0 }, { y: 0, opacity: 1, stagger: .06, duration: .8, ease: 'expo.out', scrollTrigger: { trigger: p, containerAnimation: tween, start: 'left 96%', once: true } });
@@ -411,23 +459,24 @@
   }
 
   /* ---------------- guardianband: device states ---------------- */
-  var gbs = $('#gbs'), stateItems = $$('#states li'), bandWord = $('#bandWord');
-  var WORDS = ['Armed', 'Checking', 'Warning', 'Alert sent'];
+  var gbs = $('#gbs'), stateItems = $$('#states li'), wLabel = $('#wLabel'), wSub = $('#wSub');
+  var STATES = [['Armed', 'IMU · 50 Hz · all normal'], ['Checking', 'Watching for recovery'], ['Warning', 'Press to cancel · 8 s'], ['Alert sent', 'SMS sent to 2 contacts']];
   function setState(s) {
-    if (gbs.dataset.state === String(s)) return;
+    if (!gbs || gbs.dataset.state === String(s)) return;
     gbs.dataset.state = s;
     stateItems.forEach(function (li, i) { li.classList.toggle('on', i === s); });
-    if (bandWord) bandWord.textContent = WORDS[s];
+    if (wLabel) { wLabel.textContent = STATES[s][0]; wSub.textContent = STATES[s][1]; }
   }
   if (gbs && !reduce) {
     mm.add('(min-width: 901px)', function () {
-      ScrollTrigger.create({ trigger: gbs, start: 'top top', end: '+=260%', pin: true, onUpdate: function (st) { setState(Math.min(3, Math.floor(st.progress * 4.1))); } });
+      ScrollTrigger.create({ trigger: gbs, start: 'top top', end: '+=150%', pin: true, anticipatePin: 1, onUpdate: function (st) { setState(Math.min(3, Math.floor(st.progress * 4))); } });
       return function () { setState(0); };
     });
     mm.add('(max-width: 900px)', function () {
       stateItems.forEach(function (li, i) {
-        ScrollTrigger.create({ trigger: li, start: 'top 60%', end: 'bottom 60%', onToggle: function (st) { if (st.isActive) setState(i); } });
+        ScrollTrigger.create({ trigger: li, start: 'top 78%', end: 'bottom 78%', onToggle: function (st) { if (st.isActive) setState(i); } });
       });
+      return function () { setState(0); };
     });
   }
 
