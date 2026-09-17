@@ -34,3 +34,8 @@ npx serve .
 ## Deploy
 
 Hosted on GitHub Pages from the `main` branch root. Every push to `main` redeploys.
+
+## Author
+
+Designed and built by **Mohammed Abdul Haq** — B.Tech Biomedical Engineering, MIT Manipal.  
+Portfolio: https://abdulhaq7378-hash.github.io · LinkedIn: https://www.linkedin.com/in/mohammed-abdul-haq-a0b946321
