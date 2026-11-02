@@ -11,6 +11,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://abdulhaq7378-hash.github.io/">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2306080a'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23e9e6df' stroke-width='1.6'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23ff5a3c'/%3E%3C/svg%3E">
+  <noscript><style>.loader{display:none!important}body{overflow:auto!important}[data-reveal]{opacity:1!important;transform:none!important}</style></noscript>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
@@ -213,7 +214,7 @@
               <li><time class="mono">Second year</time><b>Promoted to management committee</b><span>IE Aerospace</span></li>
               <li><time class="mono">Apr 2026</time><b>NPTEL Top 1% certificate</b><span>Awarded</span></li>
               <li><time class="mono">Apr 2026</time><b>Started GuardianBand</b><span>Wearable fall detection</span></li>
-              <li><time class="mono">Apr 2026</time><b>Started a hospital management system</b><span><em class="soon mono">Coming soon</em></span></li>
+              <li><time class="mono">Apr 2026</time><b>Started a hospital management system</b><span>National Clinic, Aurangabad</span></li>
               <li class="hi"><time class="mono">22 Jun – 21 Jul 2026</time><b>MRI internship</b><span>Sahyadri Diagnostic Centre · one month</span></li>
             </ul>
           </li>
@@ -221,6 +222,10 @@
             <h4>Year 3 <span class="mono">2026–27</span> <em class="mono">Now</em></h4>
             <ul class="ev">
               <li class="hi"><time class="mono">Sep 2026</time><b>Launched Feréa Coffee House</b><span>Café website, live on GitHub Pages</span></li>
+              <li class="hi"><time class="mono">Sep 2026</time><b>Hospital management system deployed</b><span>National Clinic, Aurangabad · running online</span></li>
+              <li><time class="mono">Oct 2026</time><b>NPTEL Matrix Computation · 96%</b><span>12 weeks · 4 credits</span></li>
+              <li><time class="mono">Oct 2026</time><b>MathWorks deep learning for image applications</b><span>MATLAB learning path</span></li>
+              <li><time class="mono">Nov 2026</time><b>Siemens Healthineers Atellica training</b><span>Analyser hardware, sample handler, software, field update</span></li>
             </ul>
           </li>
           <li class="yr future">
@@ -697,22 +702,26 @@
         </article>
 
         <article class="mini mini--wide" data-reveal>
-          <div class="mini__stage mini__stage--hms" data-tilt data-cursor="Soon">
+          <div class="mini__stage mini__stage--hms" data-tilt data-cursor="Open">
             <div class="stage__rig">
               <div class="laptop laptop--center">
                 <div class="laptop__screen">
-                  <div class="skel"><i class="skel__side"></i><i class="skel__top"></i><i></i><i></i><i></i><i class="skel__wide"></i></div>
+                  <img src="assets/hms-live.jpg" alt="National Clinic Hospital Management System staff sign-in screen" loading="lazy" width="1440" height="900">
                 </div>
                 <div class="laptop__base"></div>
               </div>
-              <span class="stamp mono">Coming soon</span>
             </div>
           </div>
           <div class="mini__text">
-            <span class="mono proj__k">Full-stack · Coming soon</span>
+            <span class="mono proj__k">Full-stack · Deployed</span>
             <h3>Hospital Management System</h3>
-            <p>One platform replacing a multispecialty hospital's paper records: appointments, pharmacy, laboratory, operation-theatre scheduling and role-based logins for doctors.</p>
-            <p class="mono proj__stack">Case study and source on GitHub soon</p>
+            <p>One system for the whole of National Clinic, Aurangabad: patient registration, appointments, the OPD token queue, consultations, prescriptions, pharmacy, laboratory, inpatient beds, the operation theatre and billing. Every patient has one record and each module posts to it, so the same patient stays linked from booking through to the final invoice.</p>
+            <p>Separate logins for the administrator, doctors and staff, and a tamper-resistant audit trail: access to patient records is written to an append-only log that cannot be edited afterwards.</p>
+            <p class="mono proj__stack">React · TypeScript · Express · MongoDB · npm workspaces</p>
+            <div class="proj__links">
+              <a class="link" href="https://national-clinic-hms.onrender.com/" target="_blank" rel="noopener">Open the live system <i></i></a>
+            </div>
+            <p class="proj__note mono">Demonstration data only, never real patient records. The free instance sleeps when idle, so the first load can take up to a minute. Sign-in details on request.</p>
           </div>
         </article>
       </div>
@@ -728,6 +737,22 @@
         </header>
 
         <div class="gauges">
+          <article class="gauge gauge--acc" data-reveal>
+            <div class="gauge__dial">
+              <svg viewBox="0 0 220 124" aria-hidden="true">
+                <path class="trk" d="M18 110A92 92 0 0 1 202 110" stroke-width="14"/>
+                <path class="val" d="M18 110A92 92 0 0 1 202 110" stroke-width="14" pathLength="100" data-ring="96"/>
+              </svg>
+              <div class="gauge__num"><b data-count="96">96</b><small>%</small></div>
+            </div>
+            <div class="gauge__text">
+              <span class="tag tag--acc mono">Assignments 25 / 25</span>
+              <h3>Matrix Computation and its Applications</h3>
+              <p>NPTEL · 12 weeks · 4 credits · proctored exam 70.5 / 75</p>
+              <p class="mono gauge__roll">Roll no. NPTEL26MA109S967000018</p>
+              <button class="link" type="button" data-lb data-doc="docs/nptel-matrix-computation.pdf" data-verify="https://nptel.ac.in/noc" data-title="Matrix Computation and its Applications — NPTEL">Open certificate <i></i></button>
+            </div>
+          </article>
           <article class="gauge gauge--acc" data-reveal>
             <div class="gauge__dial">
               <svg viewBox="0 0 220 124" aria-hidden="true">
@@ -760,6 +785,38 @@
               <button class="link" type="button" data-lb data-img="assets/cert-ee.jpg" data-doc="docs/nptel-introduction-to-electrical-engineering.pdf" data-verify="https://nptel.ac.in/noc" data-title="Introduction to Electrical Engineering — NPTEL, IIT Madras">Open certificate <i></i></button>
             </div>
           </article>
+        </div>
+
+        <div class="training" data-reveal>
+          <div class="training__head">
+            <span class="idx mono">Vendor and platform training</span>
+            <p>Short manufacturer and platform courses taken on my own time. Listed with their real length, because that is what they are: an introduction to equipment and tools I want to work on, not a qualification.</p>
+          </div>
+          <div class="training__cols">
+            <div class="training__col">
+              <h3 class="mono">Siemens Healthineers Academy</h3>
+              <p class="training__sub">Atellica Solution · clinical chemistry and immunoassay analysers · Nov 2026</p>
+              <ul>
+                <li><a href="docs/siemens-atellica-ci-analyzer.pdf" target="_blank" rel="noopener">CI Analyzer hardware overview</a><span class="mono">30 min</span></li>
+                <li><a href="docs/siemens-atellica-sample-handler.pdf" target="_blank" rel="noopener">Sample handler hardware overview</a><span class="mono">30 min</span></li>
+                <li><a href="docs/siemens-atellica-software-overview.pdf" target="_blank" rel="noopener">Solution software overview</a><span class="mono">20 min</span></li>
+                <li><a href="docs/siemens-atellica-update-130-131.pdf" target="_blank" rel="noopener">Field software update, 1.30 to 1.31.1</a><span class="mono">30 min</span></li>
+              </ul>
+              <p class="training__why">The update module is the one I would talk about: upgrading a live analyser is a change-control problem, not a software one. You schedule the downtime around the lab's workload, revalidate afterwards, re-run quality control before any patient result goes out, and keep a way back if it fails.</p>
+            </div>
+            <div class="training__col">
+              <h3 class="mono">MathWorks</h3>
+              <p class="training__sub">Deep learning in MATLAB for image applications · Oct 2026</p>
+              <ul>
+                <li><a href="docs/mathworks-deep-learning-matlab-image-applications.pdf" target="_blank" rel="noopener">Learning path certificate</a><span class="mono">Path</span></li>
+                <li><a href="docs/mathworks-explore-cnn.pdf" target="_blank" rel="noopener">Explore convolutional neural networks</a><span class="mono">1 hr</span></li>
+                <li><a href="docs/mathworks-tune-training-options.pdf" target="_blank" rel="noopener">Tune deep learning training options</a><span class="mono">1 hr</span></li>
+                <li><a href="docs/mathworks-regression-deep-learning.pdf" target="_blank" rel="noopener">Regression with deep learning</a><span class="mono">30 min</span></li>
+                <li><a href="docs/mathworks-object-detection.pdf" target="_blank" rel="noopener">Object detection with deep learning</a><span class="mono">1 hr</span></li>
+              </ul>
+              <p class="training__why">Taken to get the tooling under my hands before pointing it at medical images. The next step is the part that counts: a model trained on a public imaging set, with a number on held-out data and an honest note on where it fails.</p>
+            </div>
+          </div>
         </div>
 
         <div class="paper">

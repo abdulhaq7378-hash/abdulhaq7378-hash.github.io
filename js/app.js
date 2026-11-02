@@ -288,6 +288,16 @@
     return tl;
   }
 
+  // Safety net: whatever happens to the CDN, the shader or a throttled tab,
+  // the page must never stay stuck behind the loader.
+  setTimeout(function () {
+    if (document.body.classList.contains('is-ready')) return;
+    document.body.classList.remove('is-booting');
+    document.body.classList.add('is-ready');
+    if (lenis) lenis.start();
+    if (window.ScrollTrigger) ScrollTrigger.refresh();
+  }, 1800);
+
   if (reduce) {
     document.body.classList.add('is-ready');
   } else {

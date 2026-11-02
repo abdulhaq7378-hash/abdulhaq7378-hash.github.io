@@ -750,3 +750,22 @@ body.menu-open { overflow: hidden; }
   .w-glow, .w-ring, .w-wave, .w-press, .console__img i, .console__bar i, .mri .traces, .mri .rungs line { animation: none !important; }
   .gbs[data-state="1"] .watch { animation: none; }
 }
+
+/* ===== v5: vendor & platform training, deployed HMS note, 3-up gauges ===== */
+.gauges { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+
+.proj__note { margin-top: 12px; font-size: 12.5px; line-height: 1.55; color: var(--muted); max-width: 62ch; }
+
+.training { margin-top: clamp(56px, 7vw, 92px); border-top: 1px solid var(--line); padding-top: clamp(28px, 4vw, 44px); }
+.training__head { max-width: 72ch; margin-bottom: clamp(26px, 3.4vw, 40px); }
+.training__head p { color: var(--bone-2); margin-top: 10px; }
+.training__cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(26px, 3.6vw, 52px); }
+.training__col h3 { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
+.training__sub { font-size: 13.5px; color: var(--muted); margin: 0 0 16px; }
+.training__col ul { list-style: none; margin: 0 0 16px; padding: 0; border-top: 1px solid var(--line); }
+.training__col li { display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+  padding: 10px 0; border-bottom: 1px solid var(--line); }
+.training__col li a { color: var(--bone); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .2s, color .2s; }
+.training__col li a:hover, .training__col li a:focus-visible { color: var(--accent); border-bottom-color: var(--accent); }
+.training__col li span { flex: 0 0 auto; font-size: 11.5px; color: var(--muted); }
+.training__why { font-size: 13.5px; line-height: 1.6; color: var(--bone-2); border-left: 2px solid var(--line-2); padding-left: 14px; }
