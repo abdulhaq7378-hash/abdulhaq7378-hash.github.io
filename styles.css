@@ -752,7 +752,18 @@ body.menu-open { overflow: hidden; }
 }
 
 /* ===== v5: vendor & platform training, deployed HMS note, 3-up gauges ===== */
-.gauges { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+/* Three gauges no longer fit the original side-by-side dial + text card, so the
+   card stacks instead: dial on top, text beneath. */
+.gauges { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.gauge { grid-template-columns: minmax(0, 1fr); gap: 16px; padding: 28px 26px 30px; align-items: start; }
+.gauge__dial { width: 100%; max-width: 230px; margin: 0 auto; }
+.gauge__num b { font-size: 56px; }
+.gauge__text { min-width: 0; }
+.gauge__text h3 { font-size: 21px; margin: 10px 0 8px; }
+.gauge__text p { font-size: 14px; }
+.gauge__text .tag { display: inline-block; }
+@media (max-width: 1080px) { .gauges { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 700px)  { .gauges { grid-template-columns: minmax(0, 1fr); } }
 
 .proj__note { margin-top: 12px; font-size: 12.5px; line-height: 1.55; color: var(--muted); max-width: 62ch; }
 

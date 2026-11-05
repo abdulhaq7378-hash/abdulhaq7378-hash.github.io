@@ -44,7 +44,10 @@
   $$('[data-lb]').forEach(function (el) {
     el.addEventListener('click', function () {
       if (!lb || typeof lb.showModal !== 'function') { window.open(el.dataset.doc, '_blank'); return; }
-      lbImg.src = el.dataset.img; lbImg.alt = el.dataset.title;
+      // Some credentials have no preview image, only the PDF. Don't set
+      // src="undefined" — hide the figure and let the document link carry it.
+      if (el.dataset.img) { lbImg.src = el.dataset.img; lbImg.alt = el.dataset.title; lbImg.hidden = false; }
+      else { lbImg.removeAttribute('src'); lbImg.hidden = true; }
       lbTitle.textContent = el.dataset.title; lbDoc.href = el.dataset.doc;
       if (el.dataset.verify) { lbVerify.href = el.dataset.verify; lbVerify.hidden = false; } else lbVerify.hidden = true;
       lb.showModal();
@@ -53,7 +56,7 @@
   if (lb) {
     $('#lbClose').addEventListener('click', function () { lb.close(); });
     lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
-    lb.addEventListener('close', function () { lbImg.src = ''; });
+    lb.addEventListener('close', function () { lbImg.removeAttribute('src'); });
   }
 
   // custom cursor
