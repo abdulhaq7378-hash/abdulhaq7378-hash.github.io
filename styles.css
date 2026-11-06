@@ -780,3 +780,11 @@ body.menu-open { overflow: hidden; }
 .training__col li a:hover, .training__col li a:focus-visible { color: var(--accent); border-bottom-color: var(--accent); }
 .training__col li span { flex: 0 0 auto; font-size: 11.5px; color: var(--muted); }
 .training__why { font-size: 13.5px; line-height: 1.6; color: var(--bone-2); border-left: 2px solid var(--line-2); padding-left: 14px; }
+
+/* CV download in the header — the first thing a hiring manager needs */
+.nav__cv { display:inline-flex; align-items:center; gap:6px; font-size:11px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--bone); text-decoration:none; padding:7px 12px;
+  border:1px solid var(--line-2); border-radius:999px; transition:border-color .2s, color .2s, background .2s; }
+.nav__cv i { font-style:normal; color:var(--accent); }
+.nav__cv:hover, .nav__cv:focus-visible { color:var(--accent); border-color:var(--accent); background:var(--accent-soft); }
+@media (max-width: 900px) { .nav__cv { display:none; } }
