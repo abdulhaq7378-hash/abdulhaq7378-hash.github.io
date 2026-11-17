@@ -771,7 +771,7 @@ body.menu-open { overflow: hidden; }
 .training { margin-top: clamp(56px, 7vw, 92px); border-top: 1px solid var(--line); padding-top: clamp(28px, 4vw, 44px); }
 .training__head { max-width: 72ch; margin-bottom: clamp(26px, 3.4vw, 40px); }
 .training__head p { color: var(--bone-2); margin-top: 10px; }
-.training__cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(26px, 3.6vw, 52px); }
+.training__cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(26px, 3.6vw, 52px); }
 .training__col h3 { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
 .training__sub { font-size: 13.5px; color: var(--muted); margin: 0 0 16px; }
 .training__col ul { list-style: none; margin: 0 0 16px; padding: 0; border-top: 1px solid var(--line); }
@@ -789,3 +789,22 @@ body.menu-open { overflow: hidden; }
 .nav__cv i { font-style:normal; color:var(--accent); }
 .nav__cv:hover, .nav__cv:focus-visible { color:var(--accent); border-color:var(--accent); background:var(--accent-soft); }
 @media (max-width: 900px) { .nav__cv { display:none; } }
+
+/* Certificate controls and narrow-screen layout. */
+.paper__hint--touch { display: none; }
+.training__col { min-width: 0; }
+.training__col a, .lb__bar > .mono { overflow-wrap: anywhere; }
+.lb__links { flex-wrap: wrap; }
+@media (max-width: 900px) {
+  .paper__hint--desktop { display: none; }
+  .paper__hint--touch { display: inline; }
+  .stack { min-width: 0; align-items: center; overscroll-behavior-x: contain; }
+  .stack .cert:focus-visible { transform: none; }
+  .training__col .link, .training__col li a, .lb__links a { min-height: 44px; display: inline-flex; align-items: center; }
+  .lb { max-width: 94vw; max-height: 90dvh; overflow-y: auto; }
+  .lb img { max-height: 65dvh; }
+  .lb__bar { padding: 12px 4px; gap: 10px; }
+  .lb__bar > .mono { min-width: 0; flex-basis: 100%; }
+  .lb__links { gap: 8px 20px; }
+  .lb__close { top: max(8px, env(safe-area-inset-top)); right: max(8px, env(safe-area-inset-right)); background: var(--bg); z-index: 1; }
+}
