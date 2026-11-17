@@ -497,7 +497,7 @@ body.is-ready .loader { display: none; }
 .paper { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); align-items: center; margin-top: clamp(64px, 8vw, 110px); }
 .paper__text h3 { font: 500 clamp(30px, 3.4vw, 46px)/1.02 var(--display); letter-spacing: -.03em; margin: 12px 0 16px; }
 .paper__text p { color: var(--bone-2); }
-.stack { position: relative; height: 460px; }
+.stack { position: relative; height: 560px; }
 .cert { position: absolute; left: 50%; top: 50%; width: min(380px, 58%); padding: 0; border-radius: 6px; overflow: hidden; background: #fff; box-shadow: 0 30px 60px -24px rgba(0,0,0,.95), 0 0 0 1px rgba(0,0,0,.2);
   transform: translate(-50%, -50%) translate(var(--x0), calc(var(--y0) + var(--lift, 0px))) rotate(var(--r0)) scale(var(--s, 1));
   transition: transform .75s var(--ease), box-shadow .4s; }
