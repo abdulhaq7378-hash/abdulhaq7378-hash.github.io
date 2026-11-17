@@ -115,7 +115,7 @@
         </aside>
         <div class="sec__body">
           <p class="statement" data-words>
-            Medicine is full of instruments that turn physics into decisions. I want to be the engineer who understands both ends of that chain — the coil and the clinician. I trained inside a 3&nbsp;Tesla MRI department, I'm building a wearable that can tell a fall from a stumble, and in between I keep the mathematics sharp and ship interfaces people actually use.
+            Medicine is full of instruments that turn physics into decisions. I want to be the engineer who understands both ends of that chain — the coil and the clinician. I trained inside a 3&nbsp;Tesla MRI department, began researching a fall detection wearable, and in between I keep the mathematics sharp and ship interfaces people actually use.
           </p>
         </div>
       </div>
@@ -215,7 +215,7 @@
             <ul class="ev">
               <li><time class="mono">Second year</time><b>Promoted to management committee</b><span>IE Aerospace</span></li>
               <li><time class="mono">Apr 2026</time><b>NPTEL Top 1% certificate</b><span>Awarded</span></li>
-              <li><time class="mono">Apr 2026</time><b>Started GuardianBand</b><span>Wearable fall detection</span></li>
+              <li><time class="mono">Summer 2026</time><b>Researched GuardianBand</b><span>Early research into a fall detection wearable</span></li>
               <li><time class="mono">Apr 2026</time><b>Started a hospital management system</b><span>National Clinic, Aurangabad</span></li>
               <li class="hi"><time class="mono">22 Jun – 21 Jul 2026</time><b>MRI internship</b><span>Sahyadri Diagnostic Centre · one month</span></li>
             </ul>
@@ -224,7 +224,7 @@
             <h4>Year 3 <span class="mono">2026–27</span> <em class="mono">Now</em></h4>
             <ul class="ev">
               <li class="hi"><time class="mono">Sep 2026</time><b>Launched Feréa Coffee House</b><span>Café website, live on GitHub Pages</span></li>
-              <li class="hi"><time class="mono">Sep 2026</time><b>Hospital management system deployed</b><span>National Clinic, Aurangabad · running online</span></li>
+              <li class="hi"><time class="mono">Sep 2026</time><b>Hospital management prototype online</b><span>National Clinic, Aurangabad · being refined</span></li>
               <li><time class="mono">Oct 2026</time><b>NPTEL Matrix Computation · 96%</b><span>12 weeks · 4 credits</span></li>
               <li><time class="mono">Oct 2026</time><b>MathWorks deep learning for image applications</b><span>MATLAB learning path</span></li>
               <li><time class="mono">Nov 2026</time><b>Siemens Healthineers Atellica training</b><span>Analyser hardware, sample handler, software, field update</span></li>
@@ -478,9 +478,10 @@
         <div class="wrap gbx__grid">
           <div class="gbx__text">
             <span class="idx mono">03 <em>/ Project</em></span>
-            <p class="pill pill--live mono">In development · started Apr 2026</p>
+            <p class="pill pill--live mono">Early research · paused after summer 2026</p>
             <h2 class="hz__title">Guardian<br>Band<span class="dot">.</span></h2>
-            <p class="hz__sub">A wearable that calls for help when the wearer can't.</p>
+            <p class="hz__sub">A proposed wearable to alert family after a fall.</p>
+            <p class="mono">Exploratory concept only. Component selection, detection logic and a hardware prototype are future work.</p>
             <ol class="bom" id="bom">
               <li><span class="mono">01</span><div><b>Top cover</b> status LEDs · cancel button</div></li>
               <li><span class="mono">02</span><div><b>Buzzer</b> audible warning</div></li>
@@ -493,7 +494,7 @@
           </div>
           <figure class="gbx__fig">
             <svg id="gbxSvg" viewBox="0 0 720 660" role="img" aria-label="Exploded view of the GuardianBand wearable with labelled parts"></svg>
-            <figcaption class="mono">Concept assembly. The first prototype is being built on a breadboard.</figcaption>
+            <figcaption class="mono">Illustrative concept assembly. No hardware prototype has been built yet.</figcaption>
           </figure>
         </div>
       </div>
@@ -518,7 +519,7 @@
 
             <article class="hz__p hz__p--moves">
               <span class="idx mono">Movement</span>
-              <h3 class="hz__h">It has to know a stumble from a fall.</h3>
+              <h3 class="hz__h">The goal: tell a stumble from a fall.</h3>
               <div class="moves">
                 <div>
                   <h4 class="mono moves__ok">Normal · ignore</h4>
@@ -545,14 +546,14 @@
               </div>
               <div class="sim__side">
                 <span class="idx mono">Detection</span>
-                <h3 class="hz__h">Not one threshold. Four conditions.</h3>
+                <h3 class="hz__h">Possible signals to investigate.</h3>
                 <dl class="cond">
                   <div><dt class="mono">01</dt><dd>Free-fall dip below <b>0.4 g</b>, then an impact spike above <b>2.5 g</b></dd></div>
                   <div><dt class="mono">02</dt><dd>Significant change in body orientation from the gyroscope</dd></div>
                   <div><dt class="mono">03</dt><dd>Stillness, with no recovery movement afterwards</dd></div>
                   <div><dt class="mono">04</dt><dd>The warning passes without a cancel press</dd></div>
                 </dl>
-                <p class="hz__honest mono">Fig. 03 simulates the logic. It is not recorded data.</p>
+                <p class="hz__honest mono">Fig. 03 is an illustrative animation, not recorded data or validated detection logic. Thresholds are examples for future research.</p>
               </div>
             </article>
 
@@ -633,8 +634,8 @@
             </div>
           </figure>
           <div class="gbs__text">
-            <span class="idx mono">How it decides</span>
-            <h3 class="gbs__title">Four states, one decision.</h3>
+            <span class="idx mono">Proposed interaction</span>
+            <h3 class="gbs__title">Four possible states.</h3>
             <ol class="states" id="states">
               <li class="on"><span class="mono">State 1</span><b>Armed</b><p>Quietly sampling motion from the IMU. Green light.</p></li>
               <li><span class="mono">State 2</span><b>Checking</b><p>Something looked like a fall. It watches for recovery movement before doing anything.</p></li>
@@ -646,7 +647,7 @@
       </div>
 
       <div class="wrap gbnext">
-        <p><span class="pill pill--live mono">Status</span> Concept and detection logic are documented. The hardware build starts this semester under faculty guidance.</p>
+        <p><span class="pill pill--live mono">Status</span> Early research began during summer break and then paused. I plan to revisit component selection, detection logic and prototyping during winter break.</p>
         <ul class="chips chips--sm" aria-label="Planned after version one"><li>GPS location in the alert</li><li>Pulse sensing</li><li>Companion app</li><li>Cloud monitoring</li><li>Learned fall classification</li></ul>
       </div>
     </section>
@@ -715,13 +716,13 @@
             </div>
           </div>
           <div class="mini__text">
-            <span class="mono proj__k">Full-stack · Deployed</span>
+            <span class="mono proj__k">Full-stack · Working prototype</span>
             <h3>Hospital Management System</h3>
-            <p>One system for the whole of National Clinic, Aurangabad: patient registration, appointments, the OPD token queue, consultations, prescriptions, pharmacy, laboratory, inpatient beds, the operation theatre and billing. Every patient has one record and each module posts to it, so the same patient stays linked from booking through to the final invoice.</p>
-            <p>Separate logins for the administrator, doctors and staff, and a tamper-resistant audit trail: access to patient records is written to an append-only log that cannot be edited afterwards.</p>
+            <p>A working prototype for National Clinic, Aurangabad, covering patient records, OPD appointments, pharmacy, lab reports, inpatient beds and billing. The prototype is online while I refine it around the clinic's workflows and requirements.</p>
+            <p>It includes separate administrator, doctor and staff logins, along with an activity log. The modules and workflows are still being tailored to the hospital.</p>
             <p class="mono proj__stack">React · TypeScript · Express · MongoDB · npm workspaces</p>
             <div class="proj__links">
-              <a class="link" href="https://national-clinic-hms.onrender.com/" target="_blank" rel="noopener">Open the live system <i></i></a>
+              <a class="link" href="https://national-clinic-hms.onrender.com/" target="_blank" rel="noopener">View working prototype <i></i></a>
             </div>
             <p class="proj__note mono">Demonstration data only, never real patient records. The free instance sleeps when idle, so the first load can take up to a minute. Sign-in details on request.</p>
           </div>
@@ -874,7 +875,7 @@
         </aside>
         <div class="sec__body kit__grid">
           <div><h3 class="mono">Imaging</h3><p>MRI physics · system components · imaging workflow · MR safety · QA and preventive maintenance</p></div>
-          <div><h3 class="mono">Electronics</h3><p>Arduino · MPU-6050 / I²C · GSM modules · sensor interfacing · embedded C</p></div>
+          <div><h3 class="mono">Wearable research</h3><p>Fall detection concepts · motion sensing research · early project notes</p></div>
           <div><h3 class="mono">Analysis</h3><p>Engineering mathematics · modelling · MATLAB · Python</p></div>
           <div><h3 class="mono">Software</h3><p>JavaScript · React · TypeScript · Tailwind · Vite · Git and GitHub</p></div>
           <div><h3 class="mono">Design</h3><p>Interface design · typography · motion · design systems</p></div>
